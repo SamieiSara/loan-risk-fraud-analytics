@@ -1,0 +1,7 @@
+## 🧩 Data Model  
+
+A relational data model was developed in Power BI to integrate loan, customer, transaction, and risk datasets.  
+
+The model enables accurate KPI calculations and supports cross-functional analysis across risk, fraud, and customer dimensions.
+
+![Data Model](powerbi/screenshots/data_model.png)
