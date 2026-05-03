@@ -66,6 +66,12 @@ Python was used to explore the data and uncover patterns:
 
 ## 🟩 Dashboard Development (Power BI)  
 
+## 🧩 Data Model  
+
+A relational data model was developed in Power BI to connect loan, customer, transaction, and risk datasets.
+
+![Data Model](powerbi/screenshots/data_model.png)
+
 ### 1. Executive Summary  
 - Portfolio-level KPIs (approval rate, default rate, fraud rate)
 
