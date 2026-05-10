@@ -9,13 +9,7 @@ The goal is to support better lending decisions by identifying high-risk custome
 
 ## 🎯 Business Problem  
 Financial institutions generate a significant portion of their revenue through lending. However, poor risk assessment can lead to **loan defaults and financial losses**, while undetected fraud can further impact profitability.
-
-This project aims to answer key business questions such as:
-- Which customers are more likely to default?  
-- What factors contribute to higher credit risk?  
-- Are there patterns indicating fraudulent loan applications or transactions?  
-- How can executives monitor overall portfolio health effectively?  
-
+This project leverages data analytics to examine customer credit behavior, quantify risk levels, and uncover fraud patterns, providing a structured approach to monitoring portfolio health and supporting more accurate and consistent lending decisions.
 ---
 
 ## 🧩 Dataset  
