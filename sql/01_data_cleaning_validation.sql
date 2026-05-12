@@ -3,7 +3,7 @@
    Loan Portfolio Risk & Fraud Analytics Project
 
    Description:
-   This script performs data profiling, cleaning, and validation 
+   This script performs data profiling, cleaning, and validation  
    on loan portfolio datasets including applications, customers, 
    and transactions.
 
@@ -57,7 +57,7 @@ HAVING COUNT(*) > 1;
 -- SECTION 3: DATA TYPE VALIDATION
 -- ============================================================
 
--- Inspect sample date values
+-- Inspect sample date values to verify format consistency
 SELECT ApplicationDate
 FROM applications
 LIMIT 20;
@@ -72,17 +72,17 @@ WHERE date(ApplicationDate) IS NULL;
 -- SECTION 4: BUSINESS RULE VALIDATION
 -- ============================================================
 
--- Business Rule: Loan amount should not be negative
+-- Loan amounts must be non-negative
 SELECT *
 FROM applications
 WHERE LoanAmount < 0;
 
--- Business Rule: Credit score should be within valid range (300–850)
+-- Credit score should be within valid range (300–850)
 SELECT *
 FROM customers
 WHERE CreditScore < 300 OR CreditScore > 850;
 
--- Business Rule: Debt-to-Income ratio should not be negative
+-- Debt-to-Income ratio must be non-negative
 SELECT *
 FROM customers
 WHERE DebtToIncomeRatio < 0;
@@ -112,25 +112,10 @@ FROM customers;
 
 
 -- ============================================================
--- SECTION 7: OUTLIER DETECTION
+-- SECTION 7: FRAUD DATA VALIDATION
 -- ============================================================
 
--- Detect unusually high loan amounts
-SELECT *
-FROM applications
-WHERE LoanAmount > 1000000;
-
--- Detect unusually high transaction amounts
-SELECT *
-FROM transactions
-WHERE Amount > 50000;
-
-
--- ============================================================
--- SECTION 8: FRAUD DATA VALIDATION
--- ============================================================
-
--- Validate fraud flags in transactions (should be 0 or 1)
+-- Validate fraud flags in transactions (expected values = 0 or 1)
 SELECT *
 FROM transactions
 WHERE IsFraud NOT IN (0, 1);
@@ -142,7 +127,7 @@ WHERE IsFraudApp NOT IN (0, 1);
 
 
 -- ============================================================
--- SECTION 9: REFERENTIAL INTEGRITY CHECKS
+-- SECTION 8: REFERENTIAL INTEGRITY CHECKS
 -- ============================================================
 
 -- Check for applications without valid customer records
@@ -158,15 +143,3 @@ FROM transactions t
 LEFT JOIN customers c
     ON t.CustomerID = c.CustomerID
 WHERE c.CustomerID IS NULL;
-
-
--- ============================================================
--- SECTION 10: CLEAN DATASET (OPTIONAL VIEW)
--- ============================================================
-
--- Create a cleaned customer dataset for downstream use
-CREATE VIEW clean_customers AS
-SELECT *
-FROM customers
-WHERE Income IS NOT NULL
-  AND CreditScore BETWEEN 300 AND 850;
