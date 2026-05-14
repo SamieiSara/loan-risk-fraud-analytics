@@ -1,7 +1,11 @@
+# ============================================================
+# EXPLORATORY DATA ANALYSIS (EDA)
+# Loan Portfolio Risk & Fraud Analytics Project
+#
 # Description:
-# This script performs exploratory data analysis (EDA) to examine
-# data distributions, identify outliers and anomalies, and explore
-# relationships across loan, customer, and transaction datasets.
+# This script performs exploratory data analysis to understand
+# data distributions, detect outliers, and explore relationships
+# across loan, customer, and transaction datasets.
 #
 # Output:
 # Cleaned and enriched datasets for downstream use in Power BI.
@@ -13,7 +17,6 @@
 # ================================
 
 import pandas as pd
-import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
 
@@ -29,41 +32,47 @@ risk = pd.read_csv("risk_labels.csv")
 
 
 # ================================
-# SECTION 3: DATA OVERVIEW
+# SECTION 3: INITIAL DATA CHECK
 # ================================
 
+# Quick sanity check before analysis
 print("Applications Shape:", applications.shape)
 print("Customers Shape:", customers.shape)
-
-print("\nCustomer Data Types:")
-print(customers.dtypes)
-
-print("\nCustomer Summary Statistics:")
-print(customers.describe())
+print("Transactions Shape:", transactions.shape)
 
 
 # ================================
-# SECTION 4: MISSING VALUES CHECK
+# SECTION 4: DISTRIBUTION ANALYSIS
 # ================================
 
-print("\nMissing Values - Customers:")
-print(customers.isnull().sum())
+# Loan Amount Distribution
+plt.figure()
+plt.hist(applications['LoanAmount'], bins=50)
+plt.title("Distribution of Loan Amount")
+plt.xlabel("Loan Amount")
+plt.ylabel("Frequency")
+plt.show()
 
-print("\nMissing Values - Applications:")
-print(applications.isnull().sum())
+# Customer Income Distribution
+plt.figure()
+plt.hist(customers['Income'], bins=50)
+plt.title("Distribution of Customer Income")
+plt.xlabel("Income")
+plt.ylabel("Frequency")
+plt.show()
+
+# Credit Score Distribution
+plt.figure()
+plt.hist(customers['CreditScore'], bins=50)
+plt.title("Distribution of Credit Score")
+plt.xlabel("Credit Score")
+plt.ylabel("Frequency")
+plt.show()
 
 
 # ================================
 # SECTION 5: OUTLIER DETECTION
 # ================================
-
-# Distribution of Loan Amount
-plt.figure()
-plt.hist(applications['LoanAmount'], bins=50)
-plt.title("Loan Amount Distribution")
-plt.xlabel("Loan Amount")
-plt.ylabel("Frequency")
-plt.show()
 
 # Boxplot for Loan Amount
 plt.figure()
@@ -71,7 +80,7 @@ plt.boxplot(applications['LoanAmount'])
 plt.title("Loan Amount Outliers")
 plt.show()
 
-# IQR Method for Outlier Detection
+# IQR method for detecting extreme values
 Q1 = applications['LoanAmount'].quantile(0.25)
 Q3 = applications['LoanAmount'].quantile(0.75)
 IQR = Q3 - Q1
@@ -81,69 +90,60 @@ loan_outliers = applications[
     (applications['LoanAmount'] > Q3 + 1.5 * IQR)
 ]
 
-print("\nLoan Amount Outliers:")
-print(loan_outliers)
+print("\nNumber of Loan Amount Outliers:", len(loan_outliers))
 
 
 # ================================
-# SECTION 6: CORRELATION ANALYSIS
+# SECTION 6: RELATIONSHIP ANALYSIS
 # ================================
 
-corr_matrix = customers[['Income', 'CreditScore', 'DebtToIncomeRatio']].corr()
+# Merge customer and risk data for analysis
+merged = customers.merge(risk, on='CustomerID')
+
+# Income vs Risk Probability
+plt.figure()
+sns.scatterplot(data=merged, x='Income', y='RiskProb')
+plt.title("Income vs Risk Probability")
+plt.show()
+
+# Credit Score vs Risk Probability
+plt.figure()
+sns.scatterplot(data=merged, x='CreditScore', y='RiskProb')
+plt.title("Credit Score vs Risk Probability")
+plt.show()
+
+# Correlation Matrix
+corr = merged[['Income', 'CreditScore', 'DebtToIncomeRatio', 'RiskProb']].corr()
 
 plt.figure()
-sns.heatmap(corr_matrix, annot=True, cmap='coolwarm')
-plt.title("Correlation Matrix")
+sns.heatmap(corr, annot=True, cmap='coolwarm')
+plt.title("Correlation Between Financial Variables")
 plt.show()
 
 
 # ================================
-# SECTION 7: FEATURE ENGINEERING
+# SECTION 7: FRAUD EXPLORATION
 # ================================
 
-# Risk Bands
-risk['Risk_Band'] = pd.cut(
-    risk['RiskProb'],
-    bins=[0, 0.3, 0.7, 1],
-    labels=['Low', 'Medium', 'High']
-)
+# Overall fraud rate
+fraud_rate = transactions['IsFraud'].mean()
+print("\nOverall Fraud Rate:", fraud_rate)
 
-# Income Buckets
-customers['Income_Bucket'] = pd.cut(
-    customers['Income'],
-    bins=[0, 40000, 80000, 150000],
-    labels=['Low', 'Medium', 'High']
-)
+# Fraud rate by merchant category
+fraud_by_category = transactions.groupby('MerchantCategory')['IsFraud'].mean()
 
-# Customer Segmentation
-def segment_customer(row):
-    if row['Income'] > 100000 and row['CreditScore'] > 700:
-        return 'Premium'
-    elif row['Income'] > 50000:
-        return 'Advance'
-    else:
-        return 'Basic'
+print("\nFraud Rate by Merchant Category:")
+print(fraud_by_category)
 
-customers['Customer_Type'] = customers.apply(segment_customer, axis=1)
+# Customers with highest fraud activity
+fraud_by_customer = transactions.groupby('CustomerID')['IsFraud'].sum()
 
-# Fraud Count per Customer
-fraud_summary = (
-    transactions.groupby('CustomerID')['IsFraud']
-    .sum()
-    .reset_index()
-    .rename(columns={'IsFraud': 'Fraud_Count'})
-)
+print("\nTop Customers by Fraud Count:")
+print(fraud_by_customer.sort_values(ascending=False).head(10))
 
 
 # ================================
-# SECTION 8: GROUP ANALYSIS
+# END OF ANALYSIS
 # ================================
 
-# Merge datasets for analysis
-merged = customers.merge(risk, on='CustomerID')
-
-# Average risk by income bucket
-risk_by_income = merged.groupby('Income_Bucket')['RiskProb'].mean()
-
-print("\nAverage Risk by Income Bucket:")
-print(risk_by_income)
+print("\nEDA completed successfully.")
