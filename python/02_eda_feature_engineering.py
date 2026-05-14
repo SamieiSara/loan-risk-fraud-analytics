@@ -140,10 +140,3 @@ fraud_by_customer = transactions.groupby('CustomerID')['IsFraud'].sum()
 
 print("\nTop Customers by Fraud Count:")
 print(fraud_by_customer.sort_values(ascending=False).head(10))
-
-
-# ================================
-# END OF ANALYSIS
-# ================================
-
-print("\nEDA completed successfully.")
