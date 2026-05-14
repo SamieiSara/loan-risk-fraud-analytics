@@ -1,11 +1,7 @@
-# ============================================================
-# EXPLORATORY DATA ANALYSIS & FEATURE ENGINEERING
-# Loan Portfolio Risk & Fraud Analytics Project
-#
 # Description:
-# This script performs exploratory data analysis (EDA),
-# outlier detection, and feature engineering to uncover
-# patterns in loan, customer, and transaction data.
+# This script performs exploratory data analysis (EDA) to examine
+# data distributions, identify outliers and anomalies, and explore
+# relationships across loan, customer, and transaction datasets.
 #
 # Output:
 # Cleaned and enriched datasets for downstream use in Power BI.
@@ -151,13 +147,3 @@ risk_by_income = merged.groupby('Income_Bucket')['RiskProb'].mean()
 
 print("\nAverage Risk by Income Bucket:")
 print(risk_by_income)
-
-
-# ================================
-# SECTION 9: EXPORT CLEAN DATA
-# ================================
-
-customers.to_csv("clean_customers.csv", index=False)
-applications.to_csv("clean_applications.csv", index=False)
-
-print("\nClean datasets exported successfully.")
