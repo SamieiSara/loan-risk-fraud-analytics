@@ -54,5 +54,10 @@ The final dashboard consists of the following views:
 ### Fraud Detection Insights  
 - Fraud patterns across transactions  
 
+![Fraud Detection](screenshots/Fraud_Detection.png)
+![Fraud Detection](screenshots/Fraud_Detection_2.png)
+
 ### Customer Overview  
 - Customer-level behavior and performance insights  
+
+![Customer Overview](screenshots/Customer_Overview.png)
