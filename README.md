@@ -88,15 +88,33 @@ See `powerbi/README.md`
 
 ## 💡 Key Insights & Recommendations  
 
-The analysis identified several high-impact opportunities to improve lending decisions, reduce default risk, and strengthen fraud detection:
+- Customers in the **income $70K–$99K + 51–100% risk band** show the highest default rate (~75%), requiring immediate tightening of approval rules for this segment  
 
-- Customers in the **income $70K–$99K + 51–100% risk band** show the highest default rate (~75%), requiring stricter approval controls  
-- Credit score alone is not always reliable — certain professions (e.g., Engineers) show elevated risk despite strong credit profiles  
-- High-income segments (e.g., Doctors, Software Developers) still exhibit unexpected default patterns, highlighting the need for deeper income and debt validation  
-- Fraud activity is concentrated in **specific loan purposes (Debt Consolidation, Car Loans)** and **mid-range loan sizes (10K–50K)**  
-- Fraud behavior varies by customer tier and transaction channel, requiring **targeted, segment-specific controls** rather than uniform rules  
-- Certain regions show **low volume but high severity risk**, while others combine **high fraud activity with rapid customer growth**, requiring different monitoring strategies  
-- Customer segments such as **Basic class, younger borrowers, and specific demographic groups** show higher default rates and should be monitored more closely  
+- Credit score alone is not reliable for certain professions — **Engineers with excellent credit scores still show elevated risk (~6% vs ~1–2%)**, requiring additional income and debt validation even at high credit levels  
+
+- High-income borrowers are not always low-risk — **Doctors (100K+), Software Developers (100K+ and 70–99K), and Engineers (40–69K)** show elevated default rates, indicating the need for stricter approval criteria despite strong income  
+
+- Fraud is strongly concentrated in specific loan purposes — **Debt Consolidation and Car Loans**, which should trigger additional verification steps such as supporting documentation or secondary identity checks  
+
+- The **10K–50K loan range** is the most targeted by fraud, requiring enhanced verification at the **Pending stage**, the final decision point before approval  
+
+- Fraud behavior differs by customer tier and transaction channel:
+  - **Prime customers → ATM transactions**
+  - **Subprime customers → Transfer transactions**
+  - **Near-prime → both channels**
+  → Requires tier-specific fraud controls instead of uniform rules  
+
+- Regional risk patterns vary significantly:
+  - **Penticton and White Rock → low volume but extremely high risk severity** (require early detection logic)
+  - **Vancouver and Surrey → high fraud volume + customer growth** (require stricter controls without slowing growth)
+
+- Highest default risk is concentrated among:
+  - **Basic customer class**
+  - **Widowed customers on work permits**
+  - **Customers under 25 with poor credit scores**
+  → These groups require closer monitoring and stricter approval review  
+
+- Portfolio baseline default rate is **8%**, with **Subprime customers (51–100% risk band)** requiring the closest ongoing monitoring, followed by Near-prime segments
 
 👉 Full detailed recommendations:  
 See `business_recommendations.md`
