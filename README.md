@@ -69,30 +69,20 @@ Python was used to explore the data and uncover patterns prior to visualization:
 
 ---
 
-## 🟩 Dashboard Development (Power BI)  
+## 🟩 Dashboard Development (Power BI)
 
-## 🧩 Data Model  
+An interactive Power BI dashboard was developed to provide insights into portfolio performance, credit risk, fraud detection, and customer behavior.
 
-A relational data model was developed in Power BI to connect loan, customer, transaction, and risk datasets.
+The dashboard enables stakeholders to monitor key metrics, identify high-risk segments, and explore trends across the lending lifecycle.
 
-![Data Model](powerbi/screenshots/data_model.png)
-
-### 1. Executive Summary  
-- High-level overview of portfolio performance and key metrics 
-  
-### 2. Credit Risk Analysis  
-- Risk distribution and default trends  across customers and loans  
-
-### 3. Fraud Detection Insights  
-- Fraud patterns across time, region, and customer types  
-
-### 4. Customer Overview  
-- Customer-level performance and behavior insights  
+👉 Detailed dashboard structure, data model, and DAX measures are available in the Power BI section:
+See `powerbi/README.md` 
 
 ---
 
 ## 📸 Dashboard Preview  
-*(Add screenshots here later)*  
+
+![Executive Summary](powerbi/screenshots/Executive_Summary.png)
 
 ---
 
