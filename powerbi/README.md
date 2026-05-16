@@ -41,7 +41,9 @@ See `dax_measures.md`
 The final dashboard consists of the following views:
 
 ### Executive Summary  
-- High-level overview of portfolio performance  
+- High-level overview of portfolio performance
+
+  ![Executive Summary](screenshots/Executive_summary.png)
 
 ### Credit Risk Analysis  
 - Risk distribution and default trends  
