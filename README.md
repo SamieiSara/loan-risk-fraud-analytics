@@ -86,7 +86,17 @@ See `powerbi/README.md`
 
 ---
 
-## 💡 Key Insights  
-- Lower credit scores and higher debt-to-income ratios increase default risk  
-- Certain regions and segments show higher fraud activity  
-- Income and credit behavior strongly impact loan performance  
+## 💡 Key Insights & Recommendations  
+
+The analysis identified several high-impact opportunities to improve lending decisions, reduce default risk, and strengthen fraud detection:
+
+- Customers in the **income $70K–$99K + 51–100% risk band** show the highest default rate (~75%), requiring stricter approval controls  
+- Credit score alone is not always reliable — certain professions (e.g., Engineers) show elevated risk despite strong credit profiles  
+- High-income segments (e.g., Doctors, Software Developers) still exhibit unexpected default patterns, highlighting the need for deeper income and debt validation  
+- Fraud activity is concentrated in **specific loan purposes (Debt Consolidation, Car Loans)** and **mid-range loan sizes (10K–50K)**  
+- Fraud behavior varies by customer tier and transaction channel, requiring **targeted, segment-specific controls** rather than uniform rules  
+- Certain regions show **low volume but high severity risk**, while others combine **high fraud activity with rapid customer growth**, requiring different monitoring strategies  
+- Customer segments such as **Basic class, younger borrowers, and specific demographic groups** show higher default rates and should be monitored more closely  
+
+👉 Full detailed recommendations:  
+See `business_recommendations.md`
