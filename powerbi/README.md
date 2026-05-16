@@ -48,6 +48,9 @@ The final dashboard consists of the following views:
 ### Credit Risk Analysis  
 - Risk distribution and default trends  
 
+![Risk Analysis](screenshots/Risk_Analysis.png)
+![Risk Analysis](screenshots/Risk_Analysis_2.png)
+
 ### Fraud Detection Insights  
 - Fraud patterns across transactions  
 
