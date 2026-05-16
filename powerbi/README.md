@@ -43,7 +43,7 @@ The final dashboard consists of the following views:
 ### Executive Summary  
 - High-level overview of portfolio performance
 
-![Executive Summary](screenshots/Executive_Summary.png
+![Executive Summary](screenshots/Executive_Summary.png)
 
 ### Credit Risk Analysis  
 - Risk distribution and default trends  
