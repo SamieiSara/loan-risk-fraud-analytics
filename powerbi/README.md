@@ -16,7 +16,7 @@ It includes standard attributes such as year, month, quarter, and weekday, enabl
 
 A relational data model was designed to connect key datasets across the lending process, including customers, loans, transactions, and risk data. This structure enables consistent analysis of portfolio performance, credit risk, and fraud across the dashboard.
 
-![Data Model](screenshots/data_model.png)
+![Data Model](screenshots/datamodel.png)
 
 ---
 
