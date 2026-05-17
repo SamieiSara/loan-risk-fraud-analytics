@@ -1,126 +1,223 @@
-# 📊 Power BI DAX Measures
-Loan Risk & Fraud Analytics Project
+# 🧮 DAX Measures
 
-This document contains key DAX measures used to build KPIs across Executive Summary, Credit Risk, Fraud Detection, and Customer Overview dashboards.
+The following measures were developed to support KPI calculations across portfolio performance, credit risk analysis, fraud detection, and customer insights.
+
+Measures are grouped based on their primary use in the dashboard. Some are reused across multiple views but are defined once for clarity.
 
 ---
 
-## 🟦 EXECUTIVE SUMMARY
+## 🟩 Executive Summary (Core Portfolio KPIs)
 
 ### Total Loan Applications
+
 ```DAX
-Total Loan Applications = COUNTROWS(applications)
-````
+Total Loan Applications Number = COUNT(applications[ApplicationID])
+```
+
+### Total Loans Approved
+
+```DAX
+Total Loans Approved Number =
+CALCULATE(
+    COUNTROWS(Applications),
+    Applications[Approved] = TRUE()
+)
+```
 
 ### Approval Rate (%)
 
-Approval Rate = 
+```DAX
+Approval Rate (%) =
 DIVIDE(
-    SUM(applications[Approved]),
-    COUNTROWS(applications)
+    [Total Loans Approved Number],
+    [Total Loan Applications Number],
+    0
 )
+```
 
-### Total Loan Amount
+### Total Loan Amount Approved
 
-Total Loan Amount = SUM(applications[LoanAmount])
-
+```DAX
+Total Loan Amount Approved =
+CALCULATE(
+    SUM(Applications[LoanAmount]),
+    Applications[Approved] = TRUE()
+)
+```
 
 ### Average Loan per Customer
 
-Avg Loan per Customer =
+```DAX
+Average Loan per Customer =
 DIVIDE(
-    SUM(applications[LoanAmount]),
-    DISTINCTCOUNT(customers[CustomerID])
+    SUM(Applications[LoanAmount]),
+    DISTINCTCOUNT(Applications[CustomerID]),
+    0
 )
-
----
-
-## 🟥 CREDIT RISK ANALYSIS
-
-### Average Risk Score
-
-
-Avg Risk Score = AVERAGE(risk_labels[RiskProb])
-
-
-### High-Risk Customers (%)
-
-High Risk % =
-DIVIDE(
-    COUNTROWS(FILTER(risk_labels, risk_labels[RiskProb] > 0.7)),
-    COUNTROWS(risk_labels)
-)
-
-
-### Default Rate (%)
-
-Default Rate =
-DIVIDE(
-    COUNTROWS(FILTER(risk_labels, risk_labels[HasDefaultedBefore] = 1)),
-    COUNTROWS(risk_labels)
-)
-
-### Defaulted Loan Value
-
-Defaulted Loan Value =
-CALCULATE(
-    SUM(applications[LoanAmount]),
-    risk_labels[HasDefaultedBefore] = 1
-)
-
-
----
-
-## 🟨 FRAUD DETECTION
-
-### Total Transactions
-
-Total Transactions = COUNTROWS(transactions)
-
-
-### Fraudulent Transactions
-
-
-Fraud Transactions = SUM(transactions[IsFraud])
-
-
-### Fraud Rate (%)
-
-Fraud Rate =
-DIVIDE(
-    SUM(transactions[IsFraud]),
-    COUNTROWS(transactions)
-)
-
-
-### Total Fraud Amount
-
-Fraud Amount =
-CALCULATE(
-    SUM(transactions[Amount]),
-    transactions[IsFraud] = 1
-)
-
-
-
-## 🟪 CUSTOMER OVERVIEW
-
-### Total Customers
-
-
-Total Customers = DISTINCTCOUNT(customers[CustomerID])
-
+```
 
 ### Average Credit Score
 
+```DAX
+Average Credit Score =
+AVERAGE(DimCustomers[CreditScore])
+```
 
-Avg Credit Score = AVERAGE(customers[CreditScore])
+---
 
+## ⚠️ Credit Risk Analysis
 
-### Customer Default Rate
+### Defaulted Loans Number
 
+```DAX
+Defaulted Loans Number =
+CALCULATE(
+    COUNTROWS(Applications),
+    Applications[Approved] = TRUE(),
+    Applications[Status] = "Default"
+)
+```
+
+### Default Rate (%)
+
+```DAX
+Defaulted Loans Rate % =
+DIVIDE(
+    [Defaulted Loans Number],
+    [Total Loans Approved Number]
+)
+```
+
+### Defaulted Loan Value
+
+```DAX
+Defaulted Loan Value =
+CALCULATE(
+    SUM(Applications[LoanAmount]),
+    Applications[Approved] = TRUE(),
+    Applications[Status] = "Default"
+)
+```
+
+### High-Risk Customers (%)
+
+```DAX
+High-Risk Customers % =
+DIVIDE(
+    [High-Risk Customers],
+    [Total Customers],
+    0
+)
+```
+
+### Average Risk Score
+
+```DAX
+Average Risk Score =
+AVERAGE(Risk_Labels[RiskProb])
+```
+
+---
+
+## 🛑 Fraud Detection Insights
+
+### Total Transactions
+
+```DAX
+Total Transactions Number =
+COUNT(Transactions[TransactionID])
+```
+
+### Fraudulent Transactions
+
+```DAX
+Fraudulent Transactions Number =
+CALCULATE(
+    COUNT(Transactions[TransactionID]),
+    Transactions[IsFraud] = TRUE()
+)
+```
+
+### Fraud Transaction Rate (%)
+
+```DAX
+Fraud Trns Rate % =
+DIVIDE(
+    [Fraudulent Transactions Number],
+    [Total Transactions Number],
+    0
+)
+```
+
+### Fraud Loan Applications
+
+```DAX
+Fraudulent Loan Application Number =
+CALCULATE(
+    COUNT(Applications[ApplicationID]),
+    Applications[IsFraudApp] = TRUE()
+)
+```
+
+### Fraud Loan Rate (%)
+
+```DAX
+Fraud Loan Rate % =
+DIVIDE(
+    [Fraudulent Loan Application Number],
+    [Total Loan Applications Number],
+    0
+)
+```
+
+---
+
+## 👤 Customer Overview
+
+### Total Customers
+
+```DAX
+Total Customers =
+DISTINCTCOUNT(DimCustomers[CustomerID])
+```
+
+### Active Customers
+
+```DAX
+Active Customers =
+CALCULATE(
+    DISTINCTCOUNT(Applications[CustomerID]),
+    Applications[Status] = "Active"
+)
+```
+
+### New Customers (Last 30 Days)
+
+```DAX
+New Customers (Last 30 Days) =
+VAR MaxDate =
+CALCULATE(MAX(Applications[ApplicationDate]), ALL(Applications))
+RETURN
+CALCULATE(
+    DISTINCTCOUNT(Applications[CustomerID]),
+    FILTER(
+        Applications,
+        Applications[ApplicationDate] >= MaxDate - 30
+    )
+)
+```
+
+### Customer Default Rate (%)
+
+```DAX
 Customer Default Rate =
 DIVIDE(
-    COUNTROWS(FILTER(customers, customers[HasDefaultedBefore] = 1)),
-    COUNTROWS(customers)
+    CALCULATE(
+        DISTINCTCOUNT(DimCustomers[CustomerID]),
+        DimCustomers[HasDefaultedBefore] = 1
+    ),
+    DISTINCTCOUNT(DimCustomers[CustomerID]),
+    0
 )
+```
+
