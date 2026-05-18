@@ -32,8 +32,8 @@ These tables are connected through primary and foreign key relationships (e.g., 
 ---
 
 ## ⚙️ Tools & Technologies  
-- SQL → Data cleaning, validation, and preparation  
-- Python (Pandas, NumPy, Matplotlib) → Exploratory data analysis & feature engineering  
+- SQL → Data cleaning, validation, and preparation
+- Python (Pandas, NumPy, Matplotlib) → Exploratory data analysis to identify distributions, outliers, and relationships before visualization
 - Power BI (DAX) → Data modeling, KPI calculations, and dashboard development  
 
 ---
@@ -46,26 +46,18 @@ SQL was used to ensure data quality and reliability before analysis. Key steps i
 - Validating data types  
 - Standardizing categorical variables  
 - Applying business rule checks  
-- Ensuring referential integrity  
+- Ensuring referential integrity across tables
+- Creating derived fields such as income buckets, credit score ranges, and risk score bands to support segmentation and analysis
 
 ---
 
 ## 🟨 Exploratory Data Analysis (Python)  
-Python was used to explore the data and uncover patterns:
-- Analyzed distributions of loan amounts, income, and credit scores  
-- Detected outliers using statistical methods (IQR) and visualizations  
-- Identified relationships between financial variables  
-- Conducted fraud pattern analysis  
+Python was used to explore the data and uncover patterns prior to dashboard development:
+- Analyzed distributions of loan amounts, income, and credit scores
+- Detected outliers using statistical methods (IQR) and visualizations
+- Explored relationships between key financial variables (e.g., income, credit score, debt-to-income ratio)
+- Conducted initial fraud pattern analysis across transaction data 
 
----
-
-## 🟨 Exploratory Data Analysis (Python)  
-Python was used to explore the data and uncover patterns prior to visualization:
-
-- Analyzed distributions of loan amounts, income, and credit scores  
-- Detected outliers using statistical methods (IQR) and visualizations  
-- Identified relationships between key financial variables  
-- Conducted initial fraud pattern analysis across transaction data  
 
 ---
 
