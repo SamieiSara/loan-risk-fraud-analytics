@@ -143,3 +143,34 @@ FROM transactions t
 LEFT JOIN customers c
     ON t.CustomerID = c.CustomerID
 WHERE c.CustomerID IS NULL;
+
+
+-- ============================================================
+-- SECTION 3: DERIVED FIELDS (FEATURE ENGINEERING)
+-- ============================================================
+
+-- Create age groups for segmentation
+SELECT 
+    CustomerID,
+    Age,
+    CASE 
+        WHEN Age < 25 THEN '<25'
+        WHEN Age < 35 THEN '25–34'
+        WHEN Age < 45 THEN '35–44'
+        WHEN Age < 55 THEN '45–54'
+        ELSE '55+'
+    END AS Age_Range
+FROM customers;
+
+
+-- Create income buckets for analysis
+SELECT 
+    CustomerID,
+    Income,
+    CASE 
+        WHEN Income < 40000 THEN '<40K'
+        WHEN Income < 70000 THEN '40K–69K'
+        WHEN Income < 100000 THEN '70K–99K'
+        ELSE '100K+'
+    END AS Income_Bucket
+FROM customers;
