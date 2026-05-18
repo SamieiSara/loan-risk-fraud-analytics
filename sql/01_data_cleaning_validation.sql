@@ -174,3 +174,33 @@ SELECT
         ELSE '100K+'
     END AS Income_Bucket
 FROM customers;
+
+
+-- CREDIT SCORE RANGE
+
+SELECT 
+    CustomerID,
+    CreditScore,
+    CASE 
+        WHEN CreditScore < 580 THEN 'Poor'
+        WHEN CreditScore < 670 THEN 'Fair'
+        WHEN CreditScore < 740 THEN 'Good'
+        WHEN CreditScore < 800 THEN 'Very Good'
+        ELSE 'Excellent'
+    END AS Credit_Score_Range
+FROM customers;
+
+
+-- RISK SCORE BAND
+
+
+SELECT 
+    CustomerID,
+    RiskProb,
+    CASE 
+        WHEN RiskProb <= 0.10 THEN 'Low (0–10%)'
+        WHEN RiskProb <= 0.25 THEN 'Medium (11–25%)'
+        WHEN RiskProb <= 0.50 THEN 'High (26–50%)'
+        ELSE 'Very High (51–100%)'
+    END AS Risk_Score_Band
+FROM risk_labels;
