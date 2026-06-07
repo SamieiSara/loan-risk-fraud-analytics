@@ -65,7 +65,7 @@ Python was used to explore the data and uncover patterns prior to dashboard deve
 
 An interactive Power BI dashboard was developed to provide insights into portfolio performance, credit risk, fraud detection, and customer behavior.
 
-The dashboard enables stakeholders to monitor key metrics, identify high-risk segments, and explore trends across the lending lifecycle.
+The dashboard includes 4 pages: Executive Summary, Credit Risk Analysis, Fraud Detection, and Customer Behavior, with cross-filtering and drill-through enabled.
 
 👉 Detailed dashboard structure, data model, and DAX measures are available in the Power BI section:
 See `powerbi/README.md` 
