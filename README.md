@@ -56,8 +56,7 @@ Python was used to explore the data and uncover patterns prior to dashboard deve
 - Analyzed distributions of loan amounts, income, and credit scores
 - Detected outliers using statistical methods (IQR) and visualizations
 - Explored relationships between key financial variables (e.g., income, credit score, debt-to-income ratio)
-- Conducted initial fraud pattern analysis across transaction data 
-
+- Performed initial fraud exploration by aggregating flagged transactions at the customer level to identify high-frequency fraud accounts, informing the segmentation approach used in the Power BI fraud detection analysis.
 
 ---
 
