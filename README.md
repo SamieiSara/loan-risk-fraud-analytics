@@ -37,20 +37,21 @@ These tables are connected through primary and foreign key relationships (e.g., 
 
 ---
 
-## 🟦 Data Preparation (SQL)  
+##  Data Preparation (SQL)  
 SQL was used to ensure data quality and reliability before analysis. Key steps included:
 - Data profiling to assess completeness  
 - Handling missing values  
 - Removing duplicate records  
 - Validating data types  
-- Standardizing categorical variables  
+- Standardizing categorical variables
+- Creating derived fields such as income buckets, credit score ranges, and risk score bands to support segmentation and analysis
 - Applying business rule checks  
 - Ensuring referential integrity across tables
-- Creating derived fields such as income buckets, credit score ranges, and risk score bands to support segmentation and analysis
-
+- Cleaned and prepared data across 9 related tables; created 6+ derived segmentation fields to support downstream analysis
+  
 ---
 
-## 🟨 Exploratory Data Analysis (Python)  
+##  Exploratory Data Analysis (Python)  
 Python was used to explore the data and uncover patterns prior to dashboard development:
 - Analyzed distributions of loan amounts, income, and credit scores
 - Detected outliers using statistical methods (IQR) and visualizations
@@ -60,7 +61,7 @@ Python was used to explore the data and uncover patterns prior to dashboard deve
 
 ---
 
-## 🟩 Dashboard Development (Power BI)
+##  Dashboard Development (Power BI)
 
 An interactive Power BI dashboard was developed to provide insights into portfolio performance, credit risk, fraud detection, and customer behavior.
 
