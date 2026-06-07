@@ -1,17 +1,16 @@
-# 📊 Loan Portfolio Risk & Fraud Analytics Dashboard
+# 📊 Loan Portfolio Risk & Fraud Analytics
 
 ## 🔍 Overview  
 This project analyzes a financial institution’s loan portfolio to assess **credit risk, detect fraudulent activities, and provide executive-level insights**.  
-
-The goal is to support better lending decisions by identifying high-risk customers, monitoring fraud patterns, and improving overall portfolio performance through data-driven insights.
+This dashboard enables lending teams to reduce defaults, flag fraud early, make risk-adjusted approval decisions, and improving overall portfolio performance.
 
 ---
 
-## 🎯 Business Problem  
+## Business Problem  
 Financial institutions generate a significant portion of their revenue through lending. However, poor risk assessment can lead to **loan defaults and financial losses**, while undetected fraud can further impact profitability.
-This project focuses on analyzing a loan portfolio to examine customer credit behavior, quantify risk levels, and uncover fraud patterns, providing a structured approach to monitoring portfolio health and supporting more accurate and consistent lending decisions.
+This project analyzes customer credit behavior and fraud patterns. The output is a structured monitoring framework that supports consistent, data-driven lending decisions
 
-## 🧩 Dataset
+## Dataset
 
 The analysis is based on a structured, relational loan portfolio dataset capturing multiple aspects of the lending lifecycle, including applications, customer profiles, credit history, transactions, and risk assessments.
 
