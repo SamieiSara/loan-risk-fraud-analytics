@@ -7,8 +7,8 @@
 # key patterns in the data, including distributions, outliers,
 # and relationships across loan, customer, and transaction datasets.
 #
-# The goal is to explore risk behavior and fraud patterns
-# before building the final dashboard in Power BI.
+# The goal is to explore distributions, outliers, and variable 
+# relationships before Power BI dashboard development.
 # ============================================================
 
 
@@ -19,6 +19,7 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
+import numpy as np
 
 
 # ================================
