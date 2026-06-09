@@ -46,6 +46,16 @@ FROM customers
 GROUP BY CustomerID
 HAVING COUNT(*) > 1;
 
+-- If duplicates are found, retain the most recent record per customer
+-- ROW_NUMBER() assigns rank 1 to the latest record; we keep only rank = 1
+SELECT *
+FROM (
+    SELECT *,
+           ROW_NUMBER() OVER (PARTITION BY CustomerID ORDER BY CreatedDate DESC) AS row_num
+    FROM customers
+)
+WHERE row_num = 1;
+
 -- Check duplicate applications
 SELECT ApplicationID, COUNT(*) AS duplicate_count
 FROM applications
@@ -96,7 +106,8 @@ WHERE CreditScore < 300 OR CreditScore > 850;
 -- Debt-to-Income ratio must be non-negative OR DebtToIncomeRatio > 1 to flag unrealistic DTI values
 SELECT *
 FROM customers
-WHERE DebtToIncomeRatio < 0;
+WHERE DebtToIncomeRatio < 0
+   OR DebtToIncomeRatio > 1;
 
 -- InterestRate of 0% or above 50% would be a red flag
 SELECT * 
@@ -114,6 +125,18 @@ FROM customers
 WHERE Income IS NOT NULL
   AND CreditScore IS NOT NULL;
 
+-- Retain only valid application records
+SELECT *
+FROM applications
+WHERE LoanAmount IS NOT NULL
+  AND InterestRate IS NOT NULL
+  AND ApplicationDate IS NOT NULL;
+
+-- Retain only valid transaction records
+SELECT *
+FROM transactions
+WHERE TransactionAmount IS NOT NULL
+  AND IsFraud IS NOT NULL;
 
 -- ============================================================
 -- SECTION 6: DATA STANDARDIZATION
