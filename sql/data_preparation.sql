@@ -1,12 +1,12 @@
 /* ============================================================
-   DATA CLEANING & VALIDATION SCRIPT
+   DATA CLEANING & VALIDATION SCRIPT| Tool: SQLite / DB Browser for SQLite
    Loan Portfolio Risk & Fraud Analytics Project
 
    Description:
    This script performs data profiling, cleaning, and validation  
-   on loan portfolio datasets including applications, customers, 
-   and transactions.
-
+   on loan portfolio datasets covering all 9  tables including applications,
+   customers, transactions, credit_bureau, risk_labels, and more.
+   
    The goal is to ensure data quality, consistency, and reliability 
    before downstream analysis in Python and Power BI.
    ============================================================ */
@@ -52,12 +52,18 @@ FROM applications
 GROUP BY ApplicationID
 HAVING COUNT(*) > 1;
 
+-- Check duplicate transaction ID
+SELECT TransactionID, COUNT(*) 
+FROM transactions 
+GROUP BY TransactionID 
+HAVING COUNT(*) > 1;
+
 
 -- ============================================================
 -- SECTION 3: DATA TYPE VALIDATION
 -- ============================================================
 
--- Inspect sample date values to verify format consistency
+-- Inspect raw date format to confirm consistency before applying date() conversion
 SELECT ApplicationDate
 FROM applications
 LIMIT 20;
@@ -66,6 +72,11 @@ LIMIT 20;
 SELECT ApplicationDate
 FROM applications
 WHERE date(ApplicationDate) IS NULL;
+
+-- No numeric type checks for LoanAmount
+SELECT LoanAmount 
+FROM applications 
+WHERE TYPEOF(LoanAmount) != 'real' AND TYPEOF(LoanAmount) != 'integer';
 
 
 -- ============================================================
@@ -82,17 +93,22 @@ SELECT *
 FROM customers
 WHERE CreditScore < 300 OR CreditScore > 850;
 
--- Debt-to-Income ratio must be non-negative
+-- Debt-to-Income ratio must be non-negative OR DebtToIncomeRatio > 1 to flag unrealistic DTI values
 SELECT *
 FROM customers
 WHERE DebtToIncomeRatio < 0;
+
+-- InterestRate of 0% or above 50% would be a red flag
+SELECT * 
+FROM applications 
+WHERE InterestRate <= 0 OR InterestRate > 50;
 
 
 -- ============================================================
 -- SECTION 5: NULL HANDLING (FILTERING CLEAN DATA)
 -- ============================================================
 
--- Retain only valid records for analysis
+-- NULL FILTERING PREVIEW
 SELECT *
 FROM customers
 WHERE Income IS NOT NULL
@@ -110,6 +126,10 @@ FROM customers;
 -- Note: Standardization (e.g., casing, naming) would be applied 
 -- during data transformation if inconsistencies are found.
 
+UPDATE customers 
+SET Region = UPPER(TRIM(Region)) 
+WHERE Region != UPPER(TRIM(Region))
+
 
 -- ============================================================
 -- SECTION 7: FRAUD DATA VALIDATION
@@ -125,6 +145,9 @@ SELECT *
 FROM applications
 WHERE IsFraudApp NOT IN (0, 1);
 
+-- Validate fraud flags in fraud indicators
+SELECT * FROM fraud_indicators 
+WHERE FraudReason IS NULL OR FraudReason = '';
 
 -- ============================================================
 -- SECTION 8: REFERENTIAL INTEGRITY CHECKS
@@ -146,7 +169,7 @@ WHERE c.CustomerID IS NULL;
 
 
 -- ============================================================
--- SECTION 3: DERIVED FIELDS (FEATURE ENGINEERING)
+-- SECTION 9: DERIVED FIELDS (FEATURE ENGINEERING)
 -- ============================================================
 
 -- Create age groups for segmentation
@@ -192,7 +215,7 @@ FROM customers;
 
 
 -- RISK SCORE BAND
-
+-- RiskProb is stored as decimal (0–1); equivalent to 0–100% risk range
 
 SELECT 
     CustomerID,
