@@ -1,6 +1,6 @@
 ## 🟩 Power BI Dashboard Development
 
-This section covers the development of the interactive dashboard, including data modeling, KPI creation, and visualization.
+This section covers the development of the interactive dashboard, including data modeling, KPI creation, and visualization.The dashboard is designed for lending teams to monitor portfolio health, identify high-risk segments, and detect fraud patterns across the loan lifecycle.'
 
 ---
 
@@ -15,13 +15,13 @@ It includes standard attributes such as year, month, quarter, and weekday, enabl
 ## 🧩 Data Modeling
 
 
-A relational data model was designed to connect key datasets across the lending process, including customers, loans, transactions, and risk data. This structure enables consistent analysis of portfolio performance, credit risk, and fraud across the dashboard.
+A star schema data model was designed to connect key datasets across the lending process, including customers, loans, transactions, and risk data. This structure enables consistent analysis of portfolio performance, credit risk, and fraud across the dashboard.
 
 ![Data Model](screenshots/datamodel.png)
 
 ---
 
-## 🧮 2. DAX Measures
+## 🧮 DAX Measures
 
 DAX was used to define key business metrics and calculations.
 
