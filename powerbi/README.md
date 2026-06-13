@@ -22,7 +22,7 @@ The data model follows a hybrid dimensional structure, combining star-schema pri
 
 ##  DAX Measures
 
-DAX was used to define key business metrics and calculations.
+DAX was used to define key business metrics and calculations. All measures are organized in a dedicated _Measures table to keep the field list clean and navigable.
 
 Examples include:
 
