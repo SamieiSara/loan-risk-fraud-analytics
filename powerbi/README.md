@@ -1,10 +1,10 @@
-## 🟩 Power BI Dashboard Development
+##  Power BI Dashboard Development
 
 This section covers the development of the interactive dashboard, including data modeling, KPI creation, and visualization.The dashboard is designed for lending teams to monitor portfolio health, identify high-risk segments, and detect fraud patterns across the loan lifecycle.'
 
 ---
 
-## 📅 Date Table (Power Query)
+##  Date Table (Power Query)
 
 A dedicated date table was created in Power Query to provide a consistent time dimension for the model.
 
@@ -12,7 +12,7 @@ It includes standard attributes such as year, month, quarter, and weekday, enabl
 
 ---
 
-## 🧩 Data Modeling
+##  Data Modeling
 
 The data model follows a hybrid dimensional structure, combining star-schema principles with snowflake relationships and a dedicated bridge table. Core fact tables — transactions, applications, credit_bureau, risk_labels, and past_loans — connect to shared dimensions including DimCustomers, DimDate, and DimBranchs. A CustomerDateBridge table resolves many-to-many relationships between customers and dates across transaction and credit history records, while DimLoanTerm and credit_history extend the model through snowflaked connections.
 
@@ -20,16 +20,57 @@ The data model follows a hybrid dimensional structure, combining star-schema pri
 
 ---
 
-## 🧮 DAX Measures
+##  DAX Measures
 
 DAX was used to define key business metrics and calculations.
 
 Examples include:
-- Approval Rate  
-- Default Rate  
-- Fraud Rate  
-- Total Loan Amount  
-- Average Loan per Customer  
+
+### Total Loans Approved
+
+```DAX
+Total Loans Approved Number =
+CALCULATE(
+    COUNTROWS(Applications),
+    Applications[Approved] = TRUE()
+)
+```
+
+### High-Risk Customers (%)
+
+```DAX
+High-Risk Customers % =
+DIVIDE(
+    [High-Risk Customers],
+    [Total Customers],
+    0
+)
+```
+
+### Fraud Transaction Rate (%)
+
+```DAX
+Fraud Trns Rate % =
+DIVIDE(
+    [Fraudulent Transactions Number],
+    [Total Transactions Number],
+    0
+)
+```
+
+### Customer Default Rate (%)
+
+```DAX
+Customer Default Rate =
+DIVIDE(
+    CALCULATE(
+        DISTINCTCOUNT(DimCustomers[CustomerID]),
+        DimCustomers[HasDefaultedBefore] = 1
+    ),
+    DISTINCTCOUNT(DimCustomers[CustomerID]),
+    0
+)
+```
 
 👉 Full list of measures:  
 See `dax_measures.md`
