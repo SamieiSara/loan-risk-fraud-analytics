@@ -82,23 +82,23 @@ See `dax_measures.md`
 The final dashboard consists of the following views:
 
 ### Executive Summary  
-- High-level overview of portfolio performance
+- Summarizes overall lending performance, approval rates, fraud exposure, default trends, customer segments, and regional risk highlights.
 
 ![Executive Summary](screenshots/Executive_Summary.png)
 
 ### Credit Risk Analysis  
-- Risk distribution and default trends  
+- Examines borrower risk by credit score, risk tier, income level, job role, and customer type to identify segments with higher default probability.  
 
 ![Credit_Risk](screenshots/Credit_Risk.png)
 ![Credit_Risk](screenshots/Credit_Risk_2.png)
 
 ### Fraud Detection Insights  
-- Fraud patterns across transactions  
+- Tracks fraud activity across applications and transactions by time, region, fraud reason, loan purpose, and customer class. 
 
 ![Fraud Detection](screenshots/Fraud_Detection.png)
 ![Fraud Detection](screenshots/Fraud_Detection_2.png)
 
 ### Customer Overview  
-- Customer-level behavior and performance insights  
+- Explores customer demographics, credit score distribution, default behavior, and regional risk patterns across the borrower base. 
 
 ![Customer Overview](screenshots/Customer_Overview.png)
