@@ -77,7 +77,7 @@ See `dax_measures.md`
 
 ---
 
-## 📊 3. Dashboard Visualizations
+##  Dashboard Visualizations
 
 The final dashboard consists of the following views:
 
