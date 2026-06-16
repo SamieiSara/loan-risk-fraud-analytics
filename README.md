@@ -1,4 +1,4 @@
-# 📊 Loan Portfolio Risk & Fraud Analytics
+#  Loan Portfolio Risk & Fraud Analytics
 
 ## 🔍 Overview  
 This project analyzes a financial institution’s loan portfolio to assess **credit risk, detect fraudulent activities, and provide executive-level insights**.  
@@ -30,7 +30,7 @@ These tables are connected through primary and foreign key relationships (e.g., 
 
 ---
 
-## ⚙️ Tools & Technologies  
+##  Tools & Technologies  
 - SQL → Data cleaning, validation, and preparation
 - Python (Pandas, NumPy, Matplotlib) → Exploratory data analysis to identify distributions, outliers, and relationships before visualization
 - Power BI (DAX) → Data modeling, KPI calculations, and dashboard development  
@@ -71,13 +71,13 @@ See `powerbi/README.md`
 
 ---
 
-## 📸 Dashboard Preview  
+##  Dashboard Preview  
 
 ![Executive Summary](powerbi/screenshots/Executive_Summary.png)
 
 ---
 
-## 💡 Key Insights & Recommendations  
+##  Key Insights & Recommendations  
 
 - Customers in the **income $70K–$99K + 51–100% risk band** show the highest default rate (~75%), requiring immediate tightening of approval rules for this segment  
 
