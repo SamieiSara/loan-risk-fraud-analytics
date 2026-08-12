@@ -142,11 +142,6 @@ print(f"Credit Score outliers: {len(credit_outliers)} records "
 # ================================
 # SECTION 5: RELATIONSHIP ANALYSIS
 # ================================
-
-# ================================
-# SECTION 5: RELATIONSHIP ANALYSIS
-# ================================
-
 # Merge customers with risk labels to include RiskProb
 customers_risk = customers.merge(risk, on='CustomerID')
 
