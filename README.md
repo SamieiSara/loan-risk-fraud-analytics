@@ -1,6 +1,6 @@
 #  Loan Portfolio Risk & Fraud Analytics
 
-## 🔍 Overview  
+##  Overview  
 This project analyzes a financial institution’s loan portfolio to assess **credit risk, detect fraudulent activities, and provide executive-level insights**.  
 This dashboard enables lending teams to reduce defaults, flag fraud early, make risk-adjusted approval decisions, and improving overall portfolio performance.
 
