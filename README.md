@@ -6,7 +6,7 @@
 
 ## Overview
 
-This project analyzes a consumer lending institution's loan portfolio to understand where credit risk and fraud actually concentrate. Like most lenders, the business generates the majority of its revenue through lending, but carries the dual challenge of managing loan defaults and detecting fraudulent activity, both of which directly affect profitability. Its priorities include tightening underwriting where risk is highest, strengthening fraud detection, and doing both without adding unnecessary friction for lower-risk borrowers — which requires knowing exactly where risk concentrates, rather than relying on portfolio-wide averages that can hide which specific segments, loan types, and transaction patterns are actually driving losses.
+This project analyzes a consumer lending institution's loan portfolio to understand where credit risk and fraud actually concentrate. Like most lenders, the business generates the majority of its revenue through lending, but carries the dual challenge of managing loan defaults and detecting fraudulent activity, both of which directly affect profitability. Its priorities include tightening underwriting where risk is highest, strengthening fraud detection, and doing both without adding unnecessary friction for lower-risk borrowers, which requires knowing exactly where risk concentrates, by segment, loan type, and transaction pattern, not just as one overall number.
 
 To support underwriting policy, fraud-control, and portfolio-monitoring decisions, application, credit, and transaction data was analyzed across three key areas, mirroring the structure of the underlying Power BI dashboard:
 
