@@ -20,9 +20,9 @@ To support underwriting policy, fraud-control, and portfolio-monitoring decision
 
 ## Executive Summary
 
-The portfolio carries **$293M in approved loans** across 30,000 applications and 10,000 customers, with an **8% overall default rate** and **$22M in realized defaults** to date.
+The portfolio carries **$293M in approved loans** across 30,000 applications and 10,000 customers, with an **7.46% overall default rate** and **$22M in realized defaults** to date.
 
-- The portfolio's riskiest identifiable segment — **$70K–$99K income, top risk band** — defaults at **75%** (~9.4x the 8% baseline) and is simultaneously **approved at 73.12%**, the highest approval rate of any segment measured, and above the portfolio's own 54% average. The approval process is not screening out its highest-risk applicants — it's favoring them.
+- The portfolio's riskiest identifiable segment — **$70K–$99K income, top risk band** — defaults at **75%** (~9.4x the 8% baseline) and is simultaneously **approved at 73.12%**, the highest approval rate of any segment measured, and above the portfolio's own 54% average. The approval process is not screening out its highest-risk applicants, it's favoring them.
 - **Engineers with "excellent" credit scores default at 6%**, 3–6x the 1–2% rate of other excellent-credit borrowers. Credit score alone is hiding this group's real risk.
 - **Basic-tier customers carry a 0.24 loan-to-income ratio** — nearly double Advance customers (0.13) and more than 3x Premium customers (0.07) — and account for 5,185 of the portfolio's high-risk customers, more than Advance and Premium combined.
 - Fraud is concentrated, not spread evenly: it clusters in **Debt Consolidation and Car Loan applications**, in **medium-sized loans ($10K–$50K) with 600–800 credit scores still awaiting a decision**, and fraud *application* volume spiked from **6 to 104 in a single month** (May→June 2023) — a pattern worth an automated alert, not just a quarterly review.
