@@ -24,9 +24,9 @@ The portfolio carries **$293M in approved loans** across 30,000 applications and
 
 - The portfolio's riskiest identifiable segment — **$70K–$99K income, top risk band** — defaults at **75%** (~9.4x the 8% baseline) and is simultaneously **approved at 73.12%**, the highest approval rate of any segment measured, and above the portfolio's own 54% average. The approval process is not screening out its highest-risk applicants, it's favoring them.
 - **Engineers with "excellent" credit scores default at 6%**, 3–6x the 1–2% rate of other excellent-credit borrowers. Credit score alone is hiding this group's real risk.
-- **Basic-tier customers carry a 0.24 loan-to-income ratio** — nearly double Advance customers (0.13) and more than 3x Premium customers (0.07) — and account for 5,185 of the portfolio's high-risk customers, more than Advance and Premium combined.
-- Fraud is concentrated, not spread evenly: it clusters in **Debt Consolidation and Car Loan applications**, in **medium-sized loans ($10K–$50K) with 600–800 credit scores still awaiting a decision**, and fraud *application* volume spiked from **6 to 104 in a single month** (May→June 2023) — a pattern worth an automated alert, not just a quarterly review.
-- Regional risk doesn't track with regional volume: **Penticton and White Rock** are low-volume branches carrying the highest severity risk, while **Vancouver and Surrey** — the two fastest-growing regions (21 and 11 new customers last month) — carry the highest fraud *volume* and need controls that scale with growth rather than against it.
+- **Basic-tier customers carry a 0.24 loan-to-income ratio** — nearly double Advance customers (0.13) and more than 3x Premium customers (0.07), and account for 5,185 of the portfolio's high-risk customers, more than Advance and Premium combined.
+- Fraud is concentrated, not spread evenly: it clusters in **Debt Consolidation and Car Loan applications**, in **medium-sized loans ($10K–$50K) with 600–800 credit scores still awaiting a decision**, and fraud *application* volume spiked from **6 to 104 in a single month** (May→June 2023), a pattern worth an automated alert, not just a quarterly review.
+- Regional risk doesn't track with regional volume: **Penticton and White Rock** are low-volume branches carrying the highest severity risk, while **Vancouver and Surrey** — the two fastest-growing regions (21 and 11 new customers last month), carry the highest fraud *volume* and need controls that scale with growth rather than against it.
 
 ---
 
@@ -46,7 +46,7 @@ Engineers with *excellent* credit scores default at **~6%**, versus **~1–2%** 
 Basic-class customers average a **0.24 loan-to-income ratio** — ~1.8x Advance (0.13) and ~3.4x Premium (0.07) — and hold **5,185 high-risk customers**, more than Advance (2,968) and Premium (1,847) combined. Customer class is currently a segmentation label, not a lending constraint, despite this real leverage gap. **Affects:** Credit Policy. → **[R3](#recommendations)**
 
 **Finding 4 — High income does not reliably predict low risk.**
-Doctors (100K+) and Software Developers (100K+ and 70–99K) show the highest default rates among high earners; Engineers in the 40–69K band run a **9.09% average risk score**, modestly above the 8% baseline, with a notably higher loan-to-income ratio (~0.28). Income-tiered approval logic — the simplest, most common underwriting shortcut — misprices all three groups. **Affects:** Underwriting / Credit Policy. → **[R4](#recommendations)**
+Doctors (100K+) and Software Developers (100K+ and 70–99K) show the highest default rates among high earners; Engineers in the 40–69K band run a **9.09% average risk score**, modestly above the 8% baseline, with a notably higher loan-to-income ratio (~0.28). Income-tiered approval logic, the simplest, most common underwriting shortcut, misprices all three groups. **Affects:** Underwriting / Credit Policy. → **[R4](#recommendations)**
 
 ### Fraud Detection
 
@@ -54,13 +54,13 @@ Doctors (100K+) and Software Developers (100K+ and 70–99K) show the highest de
 Debt Consolidation is both the **#1 approved loan purpose** (5,000 of 16,000 approved loans, ~31%) and, alongside Car Loans, the purpose **most frequently linked to fraud**. Your highest-volume category is also your highest fraud-risk category. **Affects:** Fraud / Compliance Ops. → **[R5](#recommendations)**
 
 **Finding 6 — Fraud has a specific address: medium loans, mid-range credit, still pending.**
-Fraud concentrates most in the **$10K–$50K** range, among applicants with **600–800 credit scores**, on applications still marked **active / not yet approved** — the last checkpoint before a decision. This isn't the low-credit-score profile most fraud rules are tuned to catch. **Affects:** Fraud Ops. → **[R6](#recommendations)**
+Fraud concentrates most in the **$10K–$50K** range, among applicants with **600–800 credit scores**, on applications still marked **active / not yet approved** , the last checkpoint before a decision. This isn't the low-credit-score profile most fraud rules are tuned to catch. **Affects:** Fraud Ops. → **[R6](#recommendations)**
 
 **Finding 7 — Fraud channel differs by customer tier.**
 Prime customers' fraud concentrates in **ATM transactions**; Subprime and Near-prime customers' fraud concentrates in **Transfer transactions**. A single uniform fraud rule set is necessarily too loose for some tiers and too strict for others. **Affects:** Fraud / Risk Ops. → **[R7](#recommendations)**
 
 **Finding 9 — Fraud volume spiked sharply in a single month.**
-Fraud loan applications jumped from **6 to 104** between May and June 2023; fraud transactions separately jumped from **7 to 103** between May and June 2024 — both roughly **15–17x** month-over-month increases, far outside normal variation. A gradual trend can wait for a quarterly review; a 15x spike cannot. **Affects:** Fraud Ops / Risk Monitoring. → **[R9](#recommendations)**
+Fraud loan applications jumped from **6 to 104** between May and June 2023; fraud transactions separately jumped from **7 to 103** between May and June 2024 , both roughly **15–17x** month-over-month increases, far outside normal variation. A gradual trend can wait for a quarterly review; a 15x spike cannot. **Affects:** Fraud Ops / Risk Monitoring. → **[R9](#recommendations)**
 
 ### Customer Overview
 
