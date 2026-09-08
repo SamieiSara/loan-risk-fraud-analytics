@@ -10,9 +10,9 @@ This project analyzes a consumer lending institution's loan portfolio to underst
 
 To support underwriting policy, fraud-control, and portfolio-monitoring decisions, application, credit, and transaction data was analyzed across three key areas, mirroring the structure of the underlying Power BI dashboard:
 
-- **Credit Risk Analysis** — assessed whether loan approval decisions actually align with borrowers' real default risk across income, profession, and credit tier.
-- **Fraud Detection** — identified where fraud concentrates across loan purpose, loan size, transaction channel, and customer tier.
-- **Customer Overview** — examined default risk across regional and demographic customer segments.
+- **Credit Risk Analysis:**  assessed whether loan approval decisions actually align with borrowers' real default risk across income, profession, and credit tier.
+- **Fraud Detection:**  identified where fraud concentrates across loan purpose, loan size, transaction channel, and customer tier.
+- **Customer Overview:**  examined default risk across regional and demographic customer segments.
 
 *(Entity relationship diagram and full technical methodology: see [`powerbi/README.md`](powerbi/README.md).)*
 
