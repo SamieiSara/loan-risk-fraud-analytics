@@ -49,37 +49,36 @@ Borrowers earning **$70K–$99K** in the **top risk band (51–100%)** default a
 **Finding 3 — Basic-tier customers are carrying more debt relative to income than any other class.**
 Basic-class customers average a **0.24 loan-to-income ratio** — ~1.8x Advance (0.13) and ~3.4x Premium (0.07) — and hold **5,185 high-risk customers**, more than Advance (2,968) and Premium (1,847) combined. Customer class is currently a segmentation label, not a lending constraint, despite this real leverage gap. **Affects:** Credit Policy. → **[R3](#recommendations)**
 
-**Finding 4 — High income does not reliably predict low risk.**
-Doctors (100K+) and Software Developers (100K+ and 70–99K) show the highest default rates among high earners; Engineers in the 40–69K band run a **9.09% average risk score**, modestly above the 8% baseline, with a notably higher loan-to-income ratio (~0.28). Income-tiered approval logic — the simplest, most common underwriting shortcut — misprices all three groups. **Affects:** Underwriting / Credit Policy. → **[R4](#recommendations)**
-
 ### Fraud Detection
 
-![Fraud Applications and Transactions by Time](powerbi/screenshots/fraud_detection_spike.png)
-
-**Finding 5 — Fraud concentrates in the single largest loan category.**
-Debt Consolidation is both the **#1 approved loan purpose** (5,000 of 16,000 approved loans, ~31%) and, alongside Car Loans, the purpose **most frequently linked to fraud**. Your highest-volume category is also your highest fraud-risk category. **Affects:** Fraud / Compliance Ops. → **[R5](#recommendations)**
+**Finding 4 — Fraud concentrates in the single largest loan category.**
+Debt Consolidation is both the **#1 approved loan purpose** (5,000 of 16,000 approved loans, ~31%) and, alongside Car Loans, the purpose **most frequently linked to fraud**. Your highest-volume category is also your highest fraud-risk category. **Affects:** Fraud / Compliance Ops. → **[R4](#recommendations)**
 
 <img src="powerbi/screenshots/Fraud_Reason_LoanPurpose.png" alt="Fraudulent Apps by Fraud Reason and Loan Purpose" width="400">
 
-**Finding 6 — Fraud has a specific address: medium loans, mid-range credit, still pending.**
-Fraud concentrates most in the **$10K–$50K** range, among applicants with **600–800 credit scores**, on applications still marked **active / not yet approved** — the last checkpoint before a decision. This isn't the low-credit-score profile most fraud rules are tuned to catch. **Affects:** Fraud Ops. → **[R6](#recommendations)**
+**Finding 5 — Fraud has a specific address: medium loans, mid-range credit, still pending.**
+Fraud concentrates most in the **$10K–$50K** range, among applicants with **600–800 credit scores**, on applications still marked **active / not yet approved** — the last checkpoint before a decision. This isn't the low-credit-score profile most fraud rules are tuned to catch. **Affects:** Fraud Ops. → **[R5](#recommendations)**
 
-**Finding 7 — Fraud channel differs by customer tier.**
-Prime customers' fraud concentrates in **ATM transactions**; Subprime and Near-prime customers' fraud concentrates in **Transfer transactions**. A single uniform fraud rule set is necessarily too loose for some tiers and too strict for others. **Affects:** Fraud / Risk Ops. → **[R7](#recommendations)**
+**Finding 6 — Fraud channel differs by customer tier.**
+Prime customers' fraud concentrates in **ATM transactions**; Subprime and Near-prime customers' fraud concentrates in **Transfer transactions**. A single uniform fraud rule set is necessarily too loose for some tiers and too strict for others. **Affects:** Fraud / Risk Ops. → **[R6](#recommendations)**
 
-**Finding 8 — Fraud volume spiked sharply in a single month.**
-Fraud loan applications jumped from **6 to 104** between May and June 2023; fraud transactions separately jumped from **7 to 103** between May and June 2024 — both roughly **15–17x** month-over-month increases, far outside normal variation. A gradual trend can wait for a quarterly review; a 15x spike cannot. **Affects:** Fraud Ops / Risk Monitoring. → **[R8](#recommendations)**
+**Finding 7 — Fraud volume spiked sharply in a single month.**
+Fraud loan applications jumped from **6 to 104** between May and June 2023; fraud transactions separately jumped from **7 to 103** between May and June 2024 — both roughly **15–17x** month-over-month increases, far outside normal variation. A gradual trend can wait for a quarterly review; a 15x spike cannot. **Affects:** Fraud Ops / Risk Monitoring. → **[R7](#recommendations)**
 
 <img src="powerbi/screenshots/FraudApps_Trnx_Time.png" alt="Fraud Applications and Transactions by Time" width="600">
+
 ### Customer Overview
 
-**Finding 9 — Regional risk doesn't track with regional volume.**
-**Penticton** (top default region) and **White Rock** (top fraud region) are comparatively low-volume branches carrying the highest *severity* of risk. **Vancouver and Surrey** carry the highest fraud *volume* and are also the fastest-growing regions (21 and 11 new customers in the last 30 days). **Campbell River**, by contrast, has the portfolio's highest average credit score and a clean fraud/default profile — worth studying as an internal benchmark. **Affects:** Regional Risk Ops. → **[R9](#recommendations)**
+**Finding 8 — Regional risk doesn't track with regional volume.**
+**Penticton** (top default region) and **White Rock** (top fraud region) are comparatively low-volume branches carrying the highest *severity* of risk. **Vancouver and Surrey** carry the highest fraud *volume* and are also the fastest-growing regions (21 and 11 new customers in the last 30 days). **Campbell River**, by contrast, has the portfolio's highest average credit score and a clean fraud/default profile — worth studying as an internal benchmark. **Affects:** Regional Risk Ops. → **[R8](#recommendations)**
 
 <img src="powerbi/screenshots/Default_Regions.png" alt="Default Rate by Region" width="600">
 
-**Finding 10 — Default risk concentrates in three identifiable applicant profiles.**
-The highest default rates cluster among **widowed customers on work permits** and **customers under 25 with poor credit scores**. Important caveat: marital status and immigration/visa status are protected or heavily restricted factors under fair-lending regulation in most jurisdictions. **This should not be read as "decline these groups."** The actionable version is to identify the *permissible* underlying drivers correlated with these labels — income stability, credit history length, employment tenure — and build policy around those instead. **Affects:** Credit Policy, with Compliance/Legal. → **[R10](#recommendations)**
+**Finding 9 — Default risk concentrates in three identifiable applicant profiles.**
+The highest default rates cluster among **widowed customers on work permits** and **customers under 25 with poor credit scores**. Important caveat: marital status and immigration/visa status are protected or heavily restricted factors under fair-lending regulation in most jurisdictions. **This should not be read as "decline these groups."** The actionable version is to identify the *permissible* underlying drivers correlated with these labels — income stability, credit history length, employment tenure — and build policy around those instead. **Affects:** Credit Policy, with Compliance/Legal. → **[R9](#recommendations)**
+
+**Finding 10 — High income does not reliably predict low risk.**
+Doctors (100K+) and Software Developers (100K+ and 70–99K) show the highest default rates among high earners; Engineers in the 40–69K band run a **9.09% average risk score**, modestly above the 8% baseline, with a notably higher loan-to-income ratio (~0.28). Income-tiered approval logic — the simplest, most common underwriting shortcut — misprices all three groups. **Affects:** Underwriting / Credit Policy. → **[R10](#recommendations)**
 
 ---
 
@@ -92,15 +91,15 @@ The highest default rates cluster among **widowed customers on work permits** an
 | **R1** | **P0** | Require income/DTI verification for **Engineer** applicants specifically, rather than relying on credit score alone. | Underwriting / Risk Model team | Closes a 3–6x default-rate gap (6% vs. 1–2%) hidden behind an "excellent" credit score. | Default rate: Engineers vs. all excellent-credit-score borrowers |
 | **R2** | **P0** | Escalate any approval in the **$70K–$99K income + top risk band** segment to mandatory senior/committee-level review rather than standard approval — treat this combination as requiring explicit override justification, not routine sign-off. | Underwriting / Credit Policy | This segment's approval rate already falls to ~12.5% (versus 54–56% in lower-risk bands), but a 75% default rate means even that residual approval still produces disproportionate losses — tightening it further removes one of the most avoidable sources of default exposure in the portfolio. | Segment approval rate (target: near-zero without senior sign-off); default rate among any loans still approved in this segment |
 | **R3** | **P1** | Introduce a loan-to-income cap for **Basic-tier** approvals, and prioritize Advance/Premium applicants where portfolio capacity is limited. | Credit Policy | Basic-tier LTI (0.24) is ~1.8x Advance and ~3.4x Premium; Basic also holds more high-risk customers than the other two tiers combined. | Basic-tier average LTI, Basic-tier risk score trend |
-| **R4** | **P1** | Rebuild the approval scorecard around **profession × income** cross-segments instead of income-only tiers, starting with Doctors, Software Developers, and Engineers (40–69K). | Risk Analytics / Model team | Removes the income-only approval shortcut currently misreading at least three known profession/income combinations. | Default rate by profession × income segment (quarterly refresh) |
-| **R5** | **P0** | Add secondary verification (supporting documentation or identity re-check) for **Debt Consolidation** and **Car Loan** applications specifically. | Fraud / Compliance Ops | Targets the loan purpose that is simultaneously the largest share of approved volume (~31%) and the top fraud-linked purpose. | Fraud flag rate by loan purpose |
-| **R6** | **P0** | Strengthen **Pending-stage** review specifically for **$10K–$50K** loans from applicants with **600–800 credit scores**. | Fraud Ops | Targets the exact combination where fraud concentrates most, at the last checkpoint before disbursement. | Fraud catch rate at Pending stage, for this specific segment |
-| **R7** | **P1** | Replace the uniform fraud rule set with **tier-specific rules by channel**: ATM-focused for Prime, Transfer-focused for Subprime, both for Near-prime. | Fraud / Risk Ops | Tightens coverage where it's currently too loose (Transfer fraud in Subprime/Near-prime) without adding false positives where it's already working (ATM in Prime). | Catch rate and false-positive rate, by tier × channel |
-| **R8** | **P0** | Build an automated month-over-month spike alert on fraud application and transaction counts, rather than relying on quarterly review. | Fraud Ops / Risk Monitoring | Would have flagged the 15–17x spikes seen in 2023 and 2024 in real time instead of after the fact. | Month-over-month % change in fraud applications and transactions, with an alert threshold (e.g., >3x) |
-| **R9** | **P0 (Penticton, White Rock)** / **P2 (Vancouver, Surrey)** | Deploy early-detection triggers in Penticton and White Rock first; scale (not restrict) controls in Vancouver/Surrey in proportion to their growth. Use Campbell River's profile as the internal benchmark for "healthy." | Regional Risk Ops | Matches control intensity to actual severity rather than volume, protecting two small high-severity branches without slowing two branches the business is actively growing. | Branch-level default/fraud rate vs. the Campbell River benchmark |
-| **R10** | **P1** | Rebuild the "highest-risk applicant" policy around **permissible underlying drivers** (income stability, credit history length, employment tenure) rather than the demographic labels they currently correlate with. Route through Compliance/Legal before implementation. | Credit Policy + Compliance/Legal | Preserves the risk signal while keeping the policy fair-lending compliant. | Default rate by the *replacement* permissible-driver segments, post-compliance review |
+| **R4** | **P0** | Add secondary verification (supporting documentation or identity re-check) for **Debt Consolidation** and **Car Loan** applications specifically. | Fraud / Compliance Ops | Targets the loan purpose that is simultaneously the largest share of approved volume (~31%) and the top fraud-linked purpose. | Fraud flag rate by loan purpose |
+| **R5** | **P0** | Strengthen **Pending-stage** review specifically for **$10K–$50K** loans from applicants with **600–800 credit scores**. | Fraud Ops | Targets the exact combination where fraud concentrates most, at the last checkpoint before disbursement. | Fraud catch rate at Pending stage, for this specific segment |
+| **R6** | **P1** | Replace the uniform fraud rule set with **tier-specific rules by channel**: ATM-focused for Prime, Transfer-focused for Subprime, both for Near-prime. | Fraud / Risk Ops | Tightens coverage where it's currently too loose (Transfer fraud in Subprime/Near-prime) without adding false positives where it's already working (ATM in Prime). | Catch rate and false-positive rate, by tier × channel |
+| **R7** | **P0** | Build an automated month-over-month spike alert on fraud application and transaction counts, rather than relying on quarterly review. | Fraud Ops / Risk Monitoring | Would have flagged the 15–17x spikes seen in 2023 and 2024 in real time instead of after the fact. | Month-over-month % change in fraud applications and transactions, with an alert threshold (e.g., >3x) |
+| **R8** | **P0 (Penticton, White Rock)** / **P2 (Vancouver, Surrey)** | Deploy early-detection triggers in Penticton and White Rock first; scale (not restrict) controls in Vancouver/Surrey in proportion to their growth. Use Campbell River's profile as the internal benchmark for "healthy." | Regional Risk Ops | Matches control intensity to actual severity rather than volume, protecting two small high-severity branches without slowing two branches the business is actively growing. | Branch-level default/fraud rate vs. the Campbell River benchmark |
+| **R9** | **P1** | Rebuild the "highest-risk applicant" policy around **permissible underlying drivers** (income stability, credit history length, employment tenure) rather than the demographic labels they currently correlate with. Route through Compliance/Legal before implementation. | Credit Policy + Compliance/Legal | Preserves the risk signal while keeping the policy fair-lending compliant. | Default rate by the *replacement* permissible-driver segments, post-compliance review |
+| **R10** | **P1** | Rebuild the approval scorecard around **profession × income** cross-segments instead of income-only tiers, starting with Doctors, Software Developers, and Engineers (40–69K). | Risk Analytics / Model team | Removes the income-only approval shortcut currently misreading at least three known profession/income combinations. | Default rate by profession × income segment (quarterly refresh) |
 
-**Total risk exposure addressed:** $22M in realized defaults plus $23M in flagged-fraud loan value equals **~$45M in identified risk exposure — roughly 15% of the $293M approved loan book**. R2, R5, R6, and R8 alone target the segments and moments responsible for the clearest, most immediately actionable share of that exposure.
+**Total risk exposure addressed:** $22M in realized defaults plus $23M in flagged-fraud loan value equals **~$45M in identified risk exposure — roughly 15% of the $293M approved loan book**. R2, R4, R5, and R7 alone target the segments and moments responsible for the clearest, most immediately actionable share of that exposure.
 
 ---
 
@@ -125,8 +124,8 @@ Full technical documentation, the entity relationship diagram, and DAX measure d
 - Application, transaction, and credit data are treated as complete and accurate for the analysis window, with no material missing or duplicate records.
 - Risk bands, tiers, and fraud flags reflect the labeling already present in the source data; this analysis segments and prioritizes against that labeling rather than re-deriving fraud/default definitions from scratch.
 - "Customer default rate" (8%) and "loan default rate" (7.46%) are reported at different grains (per-customer vs. per-loan) and are both cited above — they are not the same measure and shouldn't be used interchangeably.
-- Recommendation R10 explicitly requires a fair-lending compliance review before any policy change — see the caveat under Finding 10.
-- The exact default rate for the Doctors/Software Developer high-income cross-segment (Finding 4) has not yet been pulled from the dashboard as a precise figure — recommended before external sharing.
+- Recommendation R9 explicitly requires a fair-lending compliance review before any policy change — see the caveat under Finding 9.
+- The exact default rate for the Doctors/Software Developer high-income cross-segment (Finding 10) has not yet been pulled from the dashboard as a precise figure — recommended before external sharing.
 
 ---
 
