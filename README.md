@@ -70,7 +70,7 @@ Prime customers' fraud concentrates in **ATM transactions**; Subprime and Near-p
 **Finding 8 — Fraud volume spiked sharply in a single month.**
 Fraud loan applications jumped from **6 to 104** between May and June 2023; fraud transactions separately jumped from **7 to 103** between May and June 2024 — both roughly **15–17x** month-over-month increases, far outside normal variation. A gradual trend can wait for a quarterly review; a 15x spike cannot. **Affects:** Fraud Ops / Risk Monitoring. → **[R8](#recommendations)**
 
-<img src="powerbi/screenshots/FraudApps_Trnx_Time.png" alt="Fraud Applications and Transactions by Time" width="400">
+<img src="powerbi/screenshots/FraudApps_Trnx_Time.png" alt="Fraud Applications and Transactions by Time" width="600">
 ### Customer Overview
 
 **Finding 9 — Regional risk doesn't track with regional volume.**
