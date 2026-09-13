@@ -40,6 +40,7 @@ Each finding follows the same structure: **what we found → the benchmark it's 
 
 **Finding 1 — Credit score alone misreads risk for Engineers.**
 Engineers with *excellent* credit scores default at **~6%**, versus **~1–2%** for other excellent-credit borrowers — a 3–6x gap hidden behind a score that's supposed to be the strongest signal available. **Affects:** Underwriting / Risk Model team. → **[R1](#recommendations)**
+![Risk Variation and Credit Score by Job](powerbi/screenshots/Risk_Credit_byJob.png)
 
 **Finding 2 — Even after approval collapses for high-risk applicants, the riskiest identifiable segment is still being funded too often.**
 Borrowers earning **$70K–$99K** in the **top risk band (51–100%)** default at **75%** — the highest in the portfolio, ~9.4x the 8% baseline. Approval rates for this risk band drop sharply across the board, well below the 54–56% seen in the Low and Medium risk bands — showing underwriting is already pulling back here. But this specific segment is still approved roughly **12.5%** of the time, and for a segment where three out of every four approved loans default, even that residual approval rate is avoidable exposure. **Affects:** Underwriting / Credit Policy. → **[R2](#recommendations)**
