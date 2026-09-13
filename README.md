@@ -59,7 +59,7 @@ Doctors (100K+) and Software Developers (100K+ and 70–99K) show the highest de
 **Finding 5 — Fraud concentrates in the single largest loan category.**
 Debt Consolidation is both the **#1 approved loan purpose** (5,000 of 16,000 approved loans, ~31%) and, alongside Car Loans, the purpose **most frequently linked to fraud**. Your highest-volume category is also your highest fraud-risk category. **Affects:** Fraud / Compliance Ops. → **[R5](#recommendations)**
 
-![Fraudulent Apps by Fraud Reason and Loan Purpose](powerbi/screenshots/Fraud_Reason_LoanPurpose.png)
+<img src="powerbi/screenshots/Fraud_Reason_LoanPurpose.png" alt="Fraudulent Apps by Fraud Reason and Loan Purpose" width="600">
 
 **Finding 6 — Fraud has a specific address: medium loans, mid-range credit, still pending.**
 Fraud concentrates most in the **$10K–$50K** range, among applicants with **600–800 credit scores**, on applications still marked **active / not yet approved** — the last checkpoint before a decision. This isn't the low-credit-score profile most fraud rules are tuned to catch. **Affects:** Fraud Ops. → **[R6](#recommendations)**
