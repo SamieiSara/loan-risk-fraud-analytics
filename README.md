@@ -36,8 +36,6 @@ Each finding follows the same structure: **what we found → the benchmark it's 
 
 ### Credit Risk Analysis
 
-![Customers Defaulted Rate and Approval Rate by Risk Score Band & Income Bucket](powerbi/screenshots/credit_risk_finding1.png)
-
 **Finding 1 — Credit score alone misreads risk for Engineers.**
 Engineers with *excellent* credit scores default at **~6%**, versus **~1–2%** for other excellent-credit borrowers — a 3–6x gap hidden behind a score that's supposed to be the strongest signal available. **Affects:** Underwriting / Risk Model team. → **[R1](#recommendations)**
 
