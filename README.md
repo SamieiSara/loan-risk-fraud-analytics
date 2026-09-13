@@ -62,6 +62,8 @@ Fraud concentrates most in the **$10K–$50K** range, among applicants with **60
 **Finding 6 — Fraud channel differs by customer tier.**
 Prime customers' fraud concentrates in **ATM transactions**; Subprime and Near-prime customers' fraud concentrates in **Transfer transactions**. A single uniform fraud rule set is necessarily too loose for some tiers and too strict for others. **Affects:** Fraud / Risk Ops. → **[R6](#recommendations)**
 
+<img src="powerbi/screenshots/FraudTrnx_Category_Tier.png" alt="Fraud Transaction Rate by Category & Tier" width="500">
+
 **Finding 7 — Fraud volume spiked sharply in a single month.**
 Fraud loan applications jumped from **6 to 104** between May and June 2023; fraud transactions separately jumped from **7 to 103** between May and June 2024 — both roughly **15–17x** month-over-month increases, far outside normal variation. A gradual trend can wait for a quarterly review; a 15x spike cannot. **Affects:** Fraud Ops / Risk Monitoring. → **[R7](#recommendations)**
 
@@ -79,6 +81,8 @@ The highest default rates cluster among **widowed customers on work permits** an
 
 **Finding 10 — High income does not reliably predict low risk.**
 Doctors (100K+) and Software Developers (100K+ and 70–99K) show the highest default rates among high earners; Engineers in the 40–69K band run a **9.09% average risk score**, modestly above the 8% baseline, with a notably higher loan-to-income ratio (~0.28). Income-tiered approval logic — the simplest, most common underwriting shortcut — misprices all three groups. **Affects:** Underwriting / Credit Policy. → **[R10](#recommendations)**
+
+<img src="powerbi/screenshots/Default_Job_Income.png" alt="Default Rate by Job & Income" width="500">
 
 ---
 
