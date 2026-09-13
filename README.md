@@ -79,6 +79,8 @@ Fraud loan applications jumped from **6 to 104** between May and June 2023; frau
 **Finding 9 — Default risk concentrates in three identifiable applicant profiles.**
 The highest default rates cluster among **widowed customers on work permits** and **customers under 25 with poor credit scores**. Important caveat: marital status and immigration/visa status are protected or heavily restricted factors under fair-lending regulation in most jurisdictions. **This should not be read as "decline these groups."** The actionable version is to identify the *permissible* underlying drivers correlated with these labels — income stability, credit history length, employment tenure — and build policy around those instead. **Affects:** Credit Policy, with Compliance/Legal. → **[R9](#recommendations)**
 
+<img src="powerbi/screenshots/DefaultRate.png" alt="Default Rate by Immigration & Marital Status" width="500">
+
 **Finding 10 — High income does not reliably predict low risk.**
 Doctors (100K+) and Software Developers (100K+ and 70–99K) show the highest default rates among high earners; Engineers in the 40–69K band run a **9.09% average risk score**, modestly above the 8% baseline, with a notably higher loan-to-income ratio (~0.28). Income-tiered approval logic — the simplest, most common underwriting shortcut — misprices all three groups. **Affects:** Underwriting / Credit Policy. → **[R10](#recommendations)**
 
