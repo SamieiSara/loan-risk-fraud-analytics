@@ -59,7 +59,7 @@ Debt Consolidation is both the **#1 approved loan purpose** (5,000 of 16,000 app
 **Finding 5 — Fraud has a specific address: medium loans, mid-range credit, still pending.**
 Fraud concentrates most in the **$10K–$50K** range, among applicants with **600–800 credit scores**, on applications still marked **active / not yet approved** — the last checkpoint before a decision. This isn't the low-credit-score profile most fraud rules are tuned to catch. **Affects:** Fraud Ops. → **[R5](#recommendations)**
 
-<img src="powerbi/screenshots/FraudApps.png" alt="Fraud Apps and Avg Credit Score by Loan Amount Bucket and Status" width="500">
+<img src="powerbi/screenshots/FraudApps.png" alt="Fraud Apps and Avg Credit Score by Loan Amount Bucket and Status" width="700">
 
 **Finding 6 — Fraud channel differs by customer tier.**
 Prime customers' fraud concentrates in **ATM transactions**; Subprime and Near-prime customers' fraud concentrates in **Transfer transactions**. A single uniform fraud rule set is necessarily too loose for some tiers and too strict for others. **Affects:** Fraud / Risk Ops. → **[R6](#recommendations)**
