@@ -82,7 +82,7 @@ The highest default rates cluster among **widowed customers on work permits** an
 **Finding 10 — High income does not reliably predict low risk.**
 Doctors (100K+) and Software Developers (100K+ and 70–99K) show the highest default rates among high earners; Engineers in the 40–69K band run a **9.09% average risk score**, modestly above the 8% baseline, with a notably higher loan-to-income ratio (~0.28). Income-tiered approval logic — the simplest, most common underwriting shortcut — misprices all three groups. **Affects:** Underwriting / Credit Policy. → **[R10](#recommendations)**
 
-<img src="powerbi/screenshots/Default_Job_Income.png" alt="Default Rate by Job & Income" width="500">
+<img src="powerbi/screenshots/Default_Job_Income.png" alt="Default Rate by Job & Income" width="400">
 
 ---
 
