@@ -70,7 +70,7 @@ Fraud loan applications jumped from **6 to 104** between May and June 2023; frau
 
 ### Customer Overview
 
-![Default Rate by Region](powerbi/screenshots/customer_overview_regions.png)
+![Default Rate by Region](powerbi/screenshots/Default_Regions.png)
 
 **Finding 9 — Regional risk doesn't track with regional volume.**
 **Penticton** (top default region) and **White Rock** (top fraud region) are comparatively low-volume branches carrying the highest *severity* of risk. **Vancouver and Surrey** carry the highest fraud *volume* and are also the fastest-growing regions (21 and 11 new customers in the last 30 days). **Campbell River**, by contrast, has the portfolio's highest average credit score and a clean fraud/default profile — worth studying as an internal benchmark. **Affects:** Regional Risk Ops. → **[R9](#recommendations)**
