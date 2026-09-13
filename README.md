@@ -44,6 +44,8 @@ Engineers with *excellent* credit scores default at **~6%**, versus **~1–2%** 
 **Finding 2 — Even after approval collapses for high-risk applicants, the riskiest identifiable segment is still being funded too often.**
 Borrowers earning **$70K–$99K** in the **top risk band (51–100%)** default at **75%** — the highest in the portfolio, ~9.4x the 8% baseline. Approval rates for this risk band drop sharply across the board, well below the 54–56% seen in the Low and Medium risk bands — showing underwriting is already pulling back here. But this specific segment is still approved roughly **12.5%** of the time, and for a segment where three out of every four approved loans default, even that residual approval rate is avoidable exposure. **Affects:** Underwriting / Credit Policy. → **[R2](#recommendations)**
 
+![Customers Defaulted Rate and Approval Rate by Risk Score Band & Income Bucket](powerbi/screenshots/Default_Approval_Rate.png)
+
 **Finding 3 — Basic-tier customers are carrying more debt relative to income than any other class.**
 Basic-class customers average a **0.24 loan-to-income ratio** — ~1.8x Advance (0.13) and ~3.4x Premium (0.07) — and hold **5,185 high-risk customers**, more than Advance (2,968) and Premium (1,847) combined. Customer class is currently a segmentation label, not a lending constraint, despite this real leverage gap. **Affects:** Credit Policy. → **[R3](#recommendations)**
 
