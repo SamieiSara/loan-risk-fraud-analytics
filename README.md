@@ -76,7 +76,7 @@ Fraud loan applications jumped from **6 to 104** between May and June 2023; frau
 **Finding 9 — Regional risk doesn't track with regional volume.**
 **Penticton** (top default region) and **White Rock** (top fraud region) are comparatively low-volume branches carrying the highest *severity* of risk. **Vancouver and Surrey** carry the highest fraud *volume* and are also the fastest-growing regions (21 and 11 new customers in the last 30 days). **Campbell River**, by contrast, has the portfolio's highest average credit score and a clean fraud/default profile — worth studying as an internal benchmark. **Affects:** Regional Risk Ops. → **[R9](#recommendations)**
 
-![Default Rate by Region](powerbi/screenshots/Default_Regions.png)
+<img src="powerbi/screenshots/Default_Regions.png" alt="Default Rate by Region" width="600">
 
 **Finding 10 — Default risk concentrates in three identifiable applicant profiles.**
 The highest default rates cluster among **widowed customers on work permits** and **customers under 25 with poor credit scores**. Important caveat: marital status and immigration/visa status are protected or heavily restricted factors under fair-lending regulation in most jurisdictions. **This should not be read as "decline these groups."** The actionable version is to identify the *permissible* underlying drivers correlated with these labels — income stability, credit history length, employment tenure — and build policy around those instead. **Affects:** Credit Policy, with Compliance/Legal. → **[R10](#recommendations)**
