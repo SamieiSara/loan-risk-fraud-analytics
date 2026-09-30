@@ -10,9 +10,9 @@ This project analyzes a lending institution's loan portfolio to understand where
 
 To support underwriting policy, fraud-control, and portfolio-monitoring decisions, application, credit, and transaction data was analyzed across three key areas, mirroring the structure of the underlying Power BI dashboard:
 
-- **Credit Risk Analysis** — assessed whether loan approval decisions actually align with borrowers' real default risk across income, profession, and credit tier.
-- **Fraud Detection** — identified where fraud concentrates across loan purpose, loan size, transaction channel, and customer tier.
-- **Customer Overview** — examined default risk across regional and demographic customer segments.
+- **Credit Risk Analysis**: assessed whether loan approval decisions actually align with borrowers' real default risk across income, profession, and credit tier.
+- **Fraud Detection**: identified where fraud concentrates across loan purpose, loan size, transaction channel, and customer tier.
+- **Customer Overview**: examined default risk across regional and demographic customer segments.
 
 *(Entity relationship diagram and full technical methodology: see [`powerbi/README.md`](powerbi/README.md).)*
 
@@ -23,10 +23,10 @@ To support underwriting policy, fraud-control, and portfolio-monitoring decision
 The portfolio carries **$293M in approved loans** across 30,000 applications and 10,000 customers, with an **8% overall default rate** and **$22M in realized defaults** to date.
 
 - **Engineers with "excellent" credit scores default at 6%**, 3–6x the 1–2% rate of other excellent-credit borrowers. Credit score alone is hiding this group's real risk.
-- The portfolio's riskiest identifiable segment — **$70K–$99K income, top risk band** — defaults at **75%** (~9.4x the 8% baseline). Approval already drops sharply for this risk band overall, but this exact segment is still approved roughly **12.5%** of the time — meaning about one in eight applicants in a segment that defaults three out of four times is still getting funded.
-- **Basic-tier customers carry a 0.24 loan-to-income ratio** — nearly double Advance customers (0.13) and more than 3x Premium customers (0.07) — and account for 5,185 of the portfolio's high-risk customers, more than Advance and Premium combined.
+- The portfolio's riskiest identifiable segment: **$70K–$99K income, top risk band** — defaults at **75%** (~9.4x the 8% baseline). Approval already drops sharply for this risk band overall, but this exact segment is still approved roughly **12.5%** of the time — meaning about one in eight applicants in a segment that defaults three out of four times is still getting funded.
+- **Basic-tier customers carry a 0.24 loan-to-income ratio** : nearly double Advance customers (0.13) and more than 3x Premium customers (0.07) — and account for 5,185 of the portfolio's high-risk customers, more than Advance and Premium combined.
 - Fraud is concentrated, not spread evenly: it clusters in **Debt Consolidation and Car Loan applications**, in **medium-sized loans ($10K–$50K) with 600–800 credit scores still awaiting a decision**, and fraud *application* volume spiked from **6 to 104 in a single month** (May→June 2023) — a pattern worth an automated alert, not just a quarterly review.
-- Regional risk doesn't track with regional volume: **Penticton and White Rock** are low-volume branches carrying the highest severity risk, while **Vancouver and Surrey** — the two fastest-growing regions (21 and 11 new customers last month) — carry the highest fraud *volume* and need controls that scale with growth rather than against it.
+- Regional risk doesn't track with regional volume: **Penticton and White Rock** are low-volume branches carrying the highest severity risk, while **Vancouver and Surrey** : the two fastest-growing regions (21 and 11 new customers last month) — carry the highest fraud *volume* and need controls that scale with growth rather than against it.
 
 ---
 
@@ -36,54 +36,54 @@ Each finding follows the same structure: **what we found → the benchmark it's 
 
 ### Credit Risk Analysis
 
-**Finding 1 — Credit score alone misreads risk for Engineers.**
+**Finding 1 : Credit score alone misreads risk for Engineers.**
 Engineers with *excellent* credit scores default at **~6%**, versus **~1–2%** for other excellent-credit borrowers — a 3–6x gap hidden behind a score that's supposed to be the strongest signal available. **Affects:** Underwriting / Risk Model team. → **[R1](#recommendations)**
 
 <img src="powerbi/screenshots/Risk_Credit_byJob.png" alt="Risk Variation and Credit Score by Job" width="400">
 
-**Finding 2 — Even after approval collapses for high-risk applicants, the riskiest identifiable segment is still being funded too often.**
+**Finding 2 : Even after approval collapses for high-risk applicants, the riskiest identifiable segment is still being funded too often.**
 Borrowers earning **$70K–$99K** in the **top risk band (51–100%)** default at **75%** — the highest in the portfolio, ~9.4x the 8% baseline. Approval rates for this risk band drop sharply across the board, well below the 54–56% seen in the Low and Medium risk bands — showing underwriting is already pulling back here. But this specific segment is still approved roughly **12.5%** of the time, and for a segment where three out of every four approved loans default, even that residual approval rate is avoidable exposure. **Affects:** Underwriting / Credit Policy. → **[R2](#recommendations)**
 
 <img src="powerbi/screenshots/Default_Approval_Rate.png" alt="Customers Defaulted Rate and Approval Rate by Risk Score Band & Income Bucket" width="700">
 
-**Finding 3 — Basic-tier customers are carrying more debt relative to income than any other class.**
+**Finding 3 : Basic-tier customers are carrying more debt relative to income than any other class.**
 Basic-class customers average a **0.24 loan-to-income ratio** — ~1.8x Advance (0.13) and ~3.4x Premium (0.07) — and hold **5,185 high-risk customers**, more than Advance (2,968) and Premium (1,847) combined. Customer class is currently a segmentation label, not a lending constraint, despite this real leverage gap. **Affects:** Credit Policy. → **[R3](#recommendations)**
 
 ### Fraud Detection
 
-**Finding 4 — Fraud concentrates in the single largest loan category.**
+**Finding 4 : Fraud concentrates in the single largest loan category.**
 Debt Consolidation is both the **#1 approved loan purpose** (5,000 of 16,000 approved loans, ~31%) and, alongside Car Loans, the purpose **most frequently linked to fraud**. Your highest-volume category is also your highest fraud-risk category. **Affects:** Fraud / Compliance Ops. → **[R4](#recommendations)**
 
 <img src="powerbi/screenshots/Fraud_Reason_LoanPurpose.png" alt="Fraudulent Apps by Fraud Reason and Loan Purpose" width="400">
 
-**Finding 5 — Fraud has a specific address: medium loans, mid-range credit, still pending.**
+**Finding 5 : Fraud has a specific address: medium loans, mid-range credit, still pending.**
 Fraud concentrates most in the **$10K–$50K** range, among applicants with **600–800 credit scores**, on applications still marked **active / not yet approved** — the last checkpoint before a decision. This isn't the low-credit-score profile most fraud rules are tuned to catch. **Affects:** Fraud Ops. → **[R5](#recommendations)**
 
 <img src="powerbi/screenshots/FraudApps.png" alt="Fraud Apps and Avg Credit Score by Loan Amount Bucket and Status" width="700">
 
-**Finding 6 — Fraud channel differs by customer tier.**
+**Finding 6 : Fraud channel differs by customer tier.**
 Prime customers' fraud concentrates in **ATM transactions**; Subprime and Near-prime customers' fraud concentrates in **Transfer transactions**. A single uniform fraud rule set is necessarily too loose for some tiers and too strict for others. **Affects:** Fraud / Risk Ops. → **[R6](#recommendations)**
 
 <img src="powerbi/screenshots/FraudTrnx_Category_Tier.png" alt="Fraud Transaction Rate by Category & Tier" width="500">
 
-**Finding 7 — Fraud volume spiked sharply in a single month.**
+**Finding 7 : Fraud volume spiked sharply in a single month.**
 Fraud loan applications jumped from **6 to 104** between May and June 2023; fraud transactions separately jumped from **7 to 103** between May and June 2024 — both roughly **15–17x** month-over-month increases, far outside normal variation. A gradual trend can wait for a quarterly review; a 15x spike cannot. **Affects:** Fraud Ops / Risk Monitoring. → **[R7](#recommendations)**
 
 <img src="powerbi/screenshots/FraudApps_Trnx_Time.png" alt="Fraud Applications and Transactions by Time" width="600">
 
 ### Customer Overview
 
-**Finding 8 — Regional risk doesn't track with regional volume.**
+**Finding 8 : Regional risk doesn't track with regional volume.**
 **Penticton** (top default region) and **White Rock** (top fraud region) are comparatively low-volume branches carrying the highest *severity* of risk. **Vancouver and Surrey** carry the highest fraud *volume* and are also the fastest-growing regions (21 and 11 new customers in the last 30 days). **Campbell River**, by contrast, has the portfolio's highest average credit score and a clean fraud/default profile — worth studying as an internal benchmark. **Affects:** Regional Risk Ops. → **[R8](#recommendations)**
 
 <img src="powerbi/screenshots/Default_Regions.png" alt="Default Rate by Region" width="600">
 
-**Finding 9 — Default risk concentrates in three identifiable applicant profiles.**
+**Finding 9 : Default risk concentrates in three identifiable applicant profiles.**
 The highest default rates cluster among **widowed customers on work permits** and **customers under 25 with poor credit scores**. Important caveat: marital status and immigration/visa status are protected or heavily restricted factors under fair-lending regulation in most jurisdictions. **This should not be read as "decline these groups."** The actionable version is to identify the *permissible* underlying drivers correlated with these labels — income stability, credit history length, employment tenure — and build policy around those instead. **Affects:** Credit Policy, with Compliance/Legal. → **[R9](#recommendations)**
 
 <img src="powerbi/screenshots/DefaultRate.png" alt="Default Rate by Immigration & Marital Status" width="500">
 
-**Finding 10 — High income does not reliably predict low risk.**
+**Finding 10 : High income does not reliably predict low risk.**
 Doctors (100K+) and Software Developers (100K+ and 70–99K) show the highest default rates among high earners; Engineers in the 40–69K band run a **9.09% average risk score**, modestly above the 8% baseline, with a notably higher loan-to-income ratio (~0.28). Income-tiered approval logic — the simplest, most common underwriting shortcut — misprices all three groups. **Affects:** Underwriting / Credit Policy. → **[R10](#recommendations)**
 
 <img src="powerbi/screenshots/Default_Job_Income.png" alt="Default Rate by Job & Income" width="400">
@@ -115,11 +115,11 @@ Doctors (100K+) and Software Developers (100K+ and 70–99K) show the highest de
 
 ### Dataset & Methodology
 
-The analysis runs on a relational loan portfolio dataset — **30,000 applications, 10,000 customers, 233,000 transactions** — spanning the full lending lifecycle across 9 linked tables (`applications`, `customers`, `credit_bureau`, `credit_history`, `transactions`, `fraud_indicators`, `past_loans`, `risk_labels`, `branches`), joined on `CustomerID` and `ApplicationID`.
+The analysis runs on a relational loan portfolio dataset , **30,000 applications, 10,000 customers, 233,000 transactions** , spanning the full lending lifecycle across 9 linked tables (`applications`, `customers`, `credit_bureau`, `credit_history`, `transactions`, `fraud_indicators`, `past_loans`, `risk_labels`, `branches`), joined on `CustomerID` and `ApplicationID`.
 
-- **SQL** — data cleaning, validation, referential integrity checks, and derived segmentation fields (income buckets, credit score ranges, risk bands) across all 9 tables.
-- **Python (Pandas, NumPy, Matplotlib)** — exploratory analysis of loan, income, and credit-score distributions; outlier detection; fraud-account aggregation that informed the segmentation used above.
-- **Power BI (DAX)** — the 4-page interactive dashboard (Executive Summary, Credit Risk Analysis, Fraud Detection, Customer Overview) every finding above is drawn from.
+- **SQL** : data cleaning, validation, referential integrity checks, and derived segmentation fields (income buckets, credit score ranges, risk bands) across all 9 tables.
+- **Python (Pandas, NumPy, Matplotlib)** : exploratory analysis of loan, income, and credit-score distributions; outlier detection; fraud-account aggregation that informed the segmentation used above.
+- **Power BI (DAX)** : the 4-page interactive dashboard (Executive Summary, Credit Risk Analysis, Fraud Detection, Customer Overview) every finding above is drawn from.
 
 Full technical documentation, the entity relationship diagram, and DAX measure definitions: see [`powerbi/README.md`](powerbi/README.md).
 
@@ -131,9 +131,9 @@ Full technical documentation, the entity relationship diagram, and DAX measure d
 
 - Application, transaction, and credit data are treated as complete and accurate for the analysis window, with no material missing or duplicate records.
 - Risk bands, tiers, and fraud flags reflect the labeling already present in the source data; this analysis segments and prioritizes against that labeling rather than re-deriving fraud/default definitions from scratch.
-- "Customer default rate" (8%) and "loan default rate" (7.46%) are reported at different grains (per-customer vs. per-loan) and are both cited above — they are not the same measure and shouldn't be used interchangeably.
-- Recommendation R9 explicitly requires a fair-lending compliance review before any policy change — see the caveat under Finding 9.
-- The exact default rate for the Doctors/Software Developer high-income cross-segment (Finding 10) has not yet been pulled from the dashboard as a precise figure — recommended before external sharing.
+- "Customer default rate" (8%) and "loan default rate" (7.46%) are reported at different grains (per-customer vs. per-loan) and are both cited above, they are not the same measure and shouldn't be used interchangeably.
+- Recommendation R9 explicitly requires a fair-lending compliance review before any policy change , see the caveat under Finding 9.
+- The exact default rate for the Doctors/Software Developer high-income cross-segment (Finding 10) has not yet been pulled from the dashboard as a precise figure , recommended before external sharing.
 
 ---
 
