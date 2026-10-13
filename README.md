@@ -26,7 +26,7 @@ The portfolio carries **$293M in approved loans** across 30,000 applications and
 - The portfolio's riskiest identifiable segment: **$70K–$99K income, top risk band** , defaults at **75%** (~9.4x the 8% baseline). Approval already drops sharply for this risk band overall, but this exact segment is still approved roughly **12.5%** of the time , meaning about one in eight applicants in a segment that defaults three out of four times is still getting funded.
 - **Basic-tier customers carry a 0.24 loan-to-income ratio** : nearly double Advance customers (0.13) and more than 3x Premium customers (0.07) , and account for 5,185 of the portfolio's high-risk customers, more than Advance and Premium combined.
 - Fraud is concentrated, not spread evenly: it clusters in **Debt Consolidation and Car Loan applications**, in **medium-sized loans ($10K–$50K) with 600–800 credit scores still awaiting a decision**, and fraud *application* volume spiked from **6 to 104 in a single month** (May→June 2023) , a pattern worth an automated alert, not just a quarterly review.
-- Regional risk doesn't track with regional volume: **Penticton and White Rock** are low-volume branches carrying the highest severity risk, while **Vancouver and Surrey** : the two fastest-growing regions (21 and 11 new customers last month) — carry the highest fraud *volume* and need controls that scale with growth rather than against it.
+- Regional risk doesn't track with regional volume: **Penticton and White Rock** are low-volume branches carrying the highest severity risk, while **Vancouver and Surrey** : the two fastest-growing regions (21 and 11 new customers last month) , carry the highest fraud *volume* and need controls that scale with growth rather than against it.
 
 ---
 
@@ -37,17 +37,17 @@ Each finding follows the same structure: **what we found → the benchmark it's 
 ### Credit Risk Analysis
 
 **Finding 1 : Credit score alone misreads risk for Engineers.**
-Engineers with *excellent* credit scores default at **~6%**, versus **~1–2%** for other excellent-credit borrowers — a 3–6x gap hidden behind a score that's supposed to be the strongest signal available. **Affects:** Underwriting / Risk Model team. → **[R1](#recommendations)**
+Engineers with *excellent* credit scores default at **~6%**, versus **~1–2%** for other excellent-credit borrowers , a 3–6x gap hidden behind a score that's supposed to be the strongest signal available. **Affects:** Underwriting / Risk Model team. → **[R1](#recommendations)**
 
 <img src="powerbi/screenshots/Risk_Credit_byJob.png" alt="Risk Variation and Credit Score by Job" width="400">
 
 **Finding 2 : Even after approval collapses for high-risk applicants, the riskiest identifiable segment is still being funded too often.**
-Borrowers earning **$70K–$99K** in the **top risk band (51–100%)** default at **75%** , the highest in the portfolio, ~9.4x the 8% baseline. Approval rates for this risk band drop sharply across the board, well below the 54–56% seen in the Low and Medium risk bands — showing underwriting is already pulling back here. But this specific segment is still approved roughly **12.5%** of the time, and for a segment where three out of every four approved loans default, even that residual approval rate is avoidable exposure. **Affects:** Underwriting / Credit Policy. → **[R2](#recommendations)**
+Borrowers earning **$70K–$99K** in the **top risk band (51–100%)** default at **75%** , the highest in the portfolio, ~9.4x the 8% baseline. Approval rates for this risk band drop sharply across the board, well below the 54–56% seen in the Low and Medium risk bands , showing underwriting is already pulling back here. But this specific segment is still approved roughly **12.5%** of the time, and for a segment where three out of every four approved loans default, even that residual approval rate is avoidable exposure. **Affects:** Underwriting / Credit Policy. → **[R2](#recommendations)**
 
 <img src="powerbi/screenshots/Default_Approval_Rate.png" alt="Customers Defaulted Rate and Approval Rate by Risk Score Band & Income Bucket" width="700">
 
 **Finding 3 : Basic-tier customers are carrying more debt relative to income than any other class.**
-Basic-class customers average a **0.24 loan-to-income ratio** , ~1.8x Advance (0.13) and ~3.4x Premium (0.07) — and hold **5,185 high-risk customers**, more than Advance (2,968) and Premium (1,847) combined. Customer class is currently a segmentation label, not a lending constraint, despite this real leverage gap. **Affects:** Credit Policy. → **[R3](#recommendations)**
+Basic-class customers average a **0.24 loan-to-income ratio** , ~1.8x Advance (0.13) and ~3.4x Premium (0.07) , and hold **5,185 high-risk customers**, more than Advance (2,968) and Premium (1,847) combined. Customer class is currently a segmentation label, not a lending constraint, despite this real leverage gap. **Affects:** Credit Policy. → **[R3](#recommendations)**
 
 ### Fraud Detection
 
@@ -57,7 +57,7 @@ Debt Consolidation is both the **#1 approved loan purpose** (5,000 of 16,000 app
 <img src="powerbi/screenshots/Fraud_Reason_LoanPurpose.png" alt="Fraudulent Apps by Fraud Reason and Loan Purpose" width="400">
 
 **Finding 5 : Fraud has a specific address: medium loans, mid-range credit, still pending.**
-Fraud concentrates most in the **$10K–$50K** range, among applicants with **600–800 credit scores**, on applications still marked **active / not yet approved** — the last checkpoint before a decision. This isn't the low-credit-score profile most fraud rules are tuned to catch. **Affects:** Fraud Ops. → **[R5](#recommendations)**
+Fraud concentrates most in the **$10K–$50K** range, among applicants with **600–800 credit scores**, on applications still marked **active / not yet approved** , the last checkpoint before a decision. This isn't the low-credit-score profile most fraud rules are tuned to catch. **Affects:** Fraud Ops. → **[R5](#recommendations)**
 
 <img src="powerbi/screenshots/FraudApps.png" alt="Fraud Apps and Avg Credit Score by Loan Amount Bucket and Status" width="700">
 
@@ -67,14 +67,14 @@ Prime customers' fraud concentrates in **ATM transactions**; Subprime and Near-p
 <img src="powerbi/screenshots/FraudTrnx_Category_Tier.png" alt="Fraud Transaction Rate by Category & Tier" width="500">
 
 **Finding 7 : Fraud volume spiked sharply in a single month.**
-Fraud loan applications jumped from **6 to 104** between May and June 2023; fraud transactions separately jumped from **7 to 103** between May and June 2024 — both roughly **15–17x** month-over-month increases, far outside normal variation. A gradual trend can wait for a quarterly review; a 15x spike cannot. **Affects:** Fraud Ops / Risk Monitoring. → **[R7](#recommendations)**
+Fraud loan applications jumped from **6 to 104** between May and June 2023; fraud transactions separately jumped from **7 to 103** between May and June 2024 , both roughly **15–17x** month-over-month increases, far outside normal variation. A gradual trend can wait for a quarterly review; a 15x spike cannot. **Affects:** Fraud Ops / Risk Monitoring. → **[R7](#recommendations)**
 
 <img src="powerbi/screenshots/FraudApps_Trnx_Time.png" alt="Fraud Applications and Transactions by Time" width="600">
 
 ### Customer Overview
 
 **Finding 8 : Regional risk doesn't track with regional volume.**
-**Penticton** (top default region) and **White Rock** (top fraud region) are comparatively low-volume branches carrying the highest *severity* of risk. **Vancouver and Surrey** carry the highest fraud *volume* and are also the fastest-growing regions (21 and 11 new customers in the last 30 days). **Campbell River**, by contrast, has the portfolio's highest average credit score and a clean fraud/default profile — worth studying as an internal benchmark. **Affects:** Regional Risk Ops. → **[R8](#recommendations)**
+**Penticton** (top default region) and **White Rock** (top fraud region) are comparatively low-volume branches carrying the highest *severity* of risk. **Vancouver and Surrey** carry the highest fraud *volume* and are also the fastest-growing regions (21 and 11 new customers in the last 30 days). **Campbell River**, by contrast, has the portfolio's highest average credit score and a clean fraud/default profile , worth studying as an internal benchmark. **Affects:** Regional Risk Ops. → **[R8](#recommendations)**
 
 <img src="powerbi/screenshots/Default_Regions.png" alt="Default Rate by Region" width="600">
 
@@ -84,7 +84,7 @@ The highest default rates cluster among **widowed customers on work permits** an
 <img src="powerbi/screenshots/DefaultRate.png" alt="Default Rate by Immigration & Marital Status" width="500">
 
 **Finding 10 : High income does not reliably predict low risk.**
-Doctors (100K+) and Software Developers (100K+ and 70–99K) show the highest default rates among high earners; Engineers in the 40–69K band run a **9.09% average risk score**, modestly above the 8% baseline, with a notably higher loan-to-income ratio (~0.28). Income-tiered approval logic — the simplest, most common underwriting shortcut — misprices all three groups. **Affects:** Underwriting / Credit Policy. → **[R10](#recommendations)**
+Doctors (100K+) and Software Developers (100K+ and 70–99K) show the highest default rates among high earners; Engineers in the 40–69K band run a **9.09% average risk score**, modestly above the 8% baseline, with a notably higher loan-to-income ratio (~0.28). Income-tiered approval logic , the simplest, most common underwriting shortcut , misprices all three groups. **Affects:** Underwriting / Credit Policy. → **[R10](#recommendations)**
 
 <img src="powerbi/screenshots/Default_Job_Income.png" alt="Default Rate by Job & Income" width="400">
 
@@ -97,7 +97,7 @@ Doctors (100K+) and Software Developers (100K+ and 70–99K) show the highest de
 | # | Priority | Action | Owner | Expected Impact | Metric to Track |
 |---|---|---|---|---|---|
 | **R1** | **P0** | Require income/DTI verification for **Engineer** applicants specifically, rather than relying on credit score alone. | Underwriting / Risk Model team | Closes a 3–6x default-rate gap (6% vs. 1–2%) hidden behind an "excellent" credit score. | Default rate: Engineers vs. all excellent-credit-score borrowers |
-| **R2** | **P0** | Escalate any approval in the **$70K–$99K income + top risk band** segment to mandatory senior/committee-level review rather than standard approval — treat this combination as requiring explicit override justification, not routine sign-off. | Underwriting / Credit Policy | This segment's approval rate already falls to ~12.5% (versus 54–56% in lower-risk bands), but a 75% default rate means even that residual approval still produces disproportionate losses — tightening it further removes one of the most avoidable sources of default exposure in the portfolio. | Segment approval rate (target: near-zero without senior sign-off); default rate among any loans still approved in this segment |
+| **R2** | **P0** | Escalate any approval in the **$70K–$99K income + top risk band** segment to mandatory senior/committee-level review rather than standard approval , treat this combination as requiring explicit override justification, not routine sign-off. | Underwriting / Credit Policy | This segment's approval rate already falls to ~12.5% (versus 54–56% in lower-risk bands), but a 75% default rate means even that residual approval still produces disproportionate losses — tightening it further removes one of the most avoidable sources of default exposure in the portfolio. | Segment approval rate (target: near-zero without senior sign-off); default rate among any loans still approved in this segment |
 | **R3** | **P1** | Introduce a loan-to-income cap for **Basic-tier** approvals, and prioritize Advance/Premium applicants where portfolio capacity is limited. | Credit Policy | Basic-tier LTI (0.24) is ~1.8x Advance and ~3.4x Premium; Basic also holds more high-risk customers than the other two tiers combined. | Basic-tier average LTI, Basic-tier risk score trend |
 | **R4** | **P0** | Add secondary verification (supporting documentation or identity re-check) for **Debt Consolidation** and **Car Loan** applications specifically. | Fraud / Compliance Ops | Targets the loan purpose that is simultaneously the largest share of approved volume (~31%) and the top fraud-linked purpose. | Fraud flag rate by loan purpose |
 | **R5** | **P0** | Strengthen **Pending-stage** review specifically for **$10K–$50K** loans from applicants with **600–800 credit scores**. | Fraud Ops | Targets the exact combination where fraud concentrates most, at the last checkpoint before disbursement. | Fraud catch rate at Pending stage, for this specific segment |
@@ -107,7 +107,7 @@ Doctors (100K+) and Software Developers (100K+ and 70–99K) show the highest de
 | **R9** | **P1** | Rebuild the "highest-risk applicant" policy around **permissible underlying drivers** (income stability, credit history length, employment tenure) rather than the demographic labels they currently correlate with. Route through Compliance/Legal before implementation. | Credit Policy + Compliance/Legal | Preserves the risk signal while keeping the policy fair-lending compliant. | Default rate by the *replacement* permissible-driver segments, post-compliance review |
 | **R10** | **P1** | Rebuild the approval scorecard around **profession × income** cross-segments instead of income-only tiers, starting with Doctors, Software Developers, and Engineers (40–69K). | Risk Analytics / Model team | Removes the income-only approval shortcut currently misreading at least three known profession/income combinations. | Default rate by profession × income segment (quarterly refresh) |
 
-**Total risk exposure addressed:** $22M in realized defaults plus $23M in flagged-fraud loan value equals **~$45M in identified risk exposure — roughly 15% of the $293M approved loan book**. R2, R4, R5, and R7 alone target the segments and moments responsible for the clearest, most immediately actionable share of that exposure.
+**Total risk exposure addressed:** $22M in realized defaults plus $23M in flagged-fraud loan value equals **~$45M in identified risk exposure , roughly 15% of the $293M approved loan book**. R2, R4, R5, and R7 alone target the segments and moments responsible for the clearest, most immediately actionable share of that exposure.
 
 ---
 
